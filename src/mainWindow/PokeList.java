@@ -27,11 +27,12 @@ class PokeList extends AbstractTableModel{
     PokeList()
     {
         getPokemon();
-    }
+    } 
     
     
     void sort(boolean[] filters)
     {
+        masterList.get(1);
         data = new ArrayList<Pokemon>();
         for(int i = 0; i < masterList.size(); i++)
         {
@@ -41,9 +42,6 @@ class PokeList extends AbstractTableModel{
         }
         fireTableDataChanged();
     }
-    
-    
-    
     
     
    ArrayList<Pokemon> getPokemon()
@@ -86,7 +84,7 @@ class PokeList extends AbstractTableModel{
                    //   masterList.add(new Pokemon(1, 2, 3, 4, 5, 6, "Pikashoo", 1, 2, true, true, true, true, 1, 1));
             }
             in.close();
-   
+         
         }
         catch (Exception e){
             System.err.println("Error: " + e.getMessage());

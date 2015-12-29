@@ -833,6 +833,7 @@ public class mainWindow extends javax.swing.JFrame {
 
     private void kantoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kantoCheckActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_kantoCheckActionPerformed
 
     private void sinnohCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinnohCheckActionPerformed
@@ -859,7 +860,7 @@ public class mainWindow extends javax.swing.JFrame {
         caughtCheck.setSelected(true);
         tradeCheck.setSelected(true);
         seenCheck.setSelected(true);
-        pokeList.sort(getFilters());
+     //   pokeList.sort(getFilters());
         
     }//GEN-LAST:event_allCollectionButtonActionPerformed
 
@@ -900,7 +901,7 @@ public class mainWindow extends javax.swing.JFrame {
         caughtCheck.setSelected(false);
         tradeCheck.setSelected(false);
         seenCheck.setSelected(false);
-        pokeList.sort(getFilters());
+   //     pokeList.sort(getFilters());
     }//GEN-LAST:event_noCollectionButtonActionPerformed
 
     private void allTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allTypeButtonActionPerformed
@@ -922,7 +923,7 @@ public class mainWindow extends javax.swing.JFrame {
        iceBox.setSelected(true);
        dragonBox.setSelected(true);
        darkBox.setSelected(true);
-       pokeList.sort(getFilters());
+  //     pokeList.sort(getFilters());
     }//GEN-LAST:event_allTypeButtonActionPerformed
 
     private void noTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noTypeButtonActionPerformed
@@ -944,7 +945,7 @@ public class mainWindow extends javax.swing.JFrame {
        iceBox.setSelected(false);
        dragonBox.setSelected(false);
        darkBox.setSelected(false);
-       pokeList.sort(getFilters());
+   //    pokeList.sort(getFilters());
     }//GEN-LAST:event_noTypeButtonActionPerformed
 
     private void setMultipleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setMultipleFieldActionPerformed

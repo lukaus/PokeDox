@@ -133,7 +133,7 @@ public final class Pokemon{
             return false;
         if((sinnohDex > 0) && filters[3] == false)   // sinnoh check
             return false;
-        if((unovaDex > 0) && filters[4] == false)    // unova check
+        if((unovaDex >= 0) && filters[4] == false)    // unova check, Victini is 0
             return false;
         if((kalosDex > 0) && filters[5] == false)    // kalos check
             return false;
