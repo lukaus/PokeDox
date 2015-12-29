@@ -10,7 +10,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import javax.swing.JFrame;
+import javax.swing.JFrame;  
 import javax.swing.table.AbstractTableModel;
 
 /**
