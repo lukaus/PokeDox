@@ -138,15 +138,15 @@ public final class Pokemon{
         if((kalosDex > 0) && filters[5] == false)    // kalos check
             return false;
         
-        if(filters[6] && !caught)
+        if(filters[6] == false && !caught)
             return false;
-        if(filters[7] && !want)
+        if(filters[7] == false && !want)
             return false;
-        if(filters[8] && !seen)
+        if(filters[8] == false && !seen)
             return false;
-        if(filters[9] && !(multiples > 0))
+        if(filters[9] == false && !(multiples > 0))
             return false;
-        if(filters[11] && !trade)
+        if(filters[11] == false && !trade)
             return false;
         
         if(filters[12] == false && (getType1() == 1 || getType2() == 1))
