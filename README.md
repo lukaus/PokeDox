@@ -19,3 +19,5 @@ TODO for final version (0.9 - 1.0):
     -   Implement the rest of the GUI
     -   Implement persistence of data, either through serialization, or, more likely, writing and reading from pokemon.dat (eventually perhaps allow user-defined 'saves')
     -   Make pokemon's icon appear in the proper panel when selected
+
+
