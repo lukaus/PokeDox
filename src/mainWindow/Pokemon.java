@@ -113,7 +113,8 @@ public final class Pokemon{
     {   
         /* filters format:
         kanto       johto   hoenn           sinnoh      unova       kalos 
-        caught      want    seen            multiples   dontHave    trade 
+        caught(6)      want(7)    seen(8)            multiples(9)   dontHave(10)    trade(11) 
+        
         normal(1)   fire(10)    fighting(2)     water(11)        
         flying(3)   grass(12)   poison(4)       electric(13)
         steel(9)    fairy(18)   ground(5)       psychic(14) 
@@ -128,20 +129,53 @@ public final class Pokemon{
         /*
         ...  check against filters
         */
-        boolean typeFlag = true;
+
         
-        if(filters[getType1() + 11] == true)
+        if(filters[getType1() + 11] == true)    // check if type is permitted
         {
+            if(filters[30] == true)     // check if we are using strict type matching
+            {
+                if((getType2() != 0) && filters[getType2() + 11] == false)   // if so, check if type2 is permitted
+                    return false;   // if not, FAIL
+            }
             // passes typecheck
         }
-        else
+        else        // if type1 doesn't pass
         {
-            if(getType2() == 0)
+            if(filters[30] == true)
                 return false;
-            if(filters[getType2() + 11] == false)
+            if(getType2() == 0) // is there a type 2?
+                return false;   // no? then FAIL
+            if(filters[getType2() + 11] == false) // yes? does it match true?
+                return false;   // no? FAIL   otherwise, continue
+        }
+        
+        if(filters[6] == false )
+        {
+            if(caught)
                 return false;
         }
-                
+        if(filters[7] == true && !want)
+        {
+             if(!want)
+                return false;
+        }
+        if(filters[8] == true )
+        {
+            if(!seen)
+                return false;
+        }
+        if(filters[9] == true)
+        {
+             if( !(multiples > 0))
+                return false;
+        }
+        if(filters[11] == true )
+        {
+            if(!trade)
+                return false;
+        }
+        /**/
         
         if(filters[0] == true)   // kanto check  (if Kanto is to be included and in Kanto dex)
         {
@@ -217,16 +251,7 @@ public final class Pokemon{
         
         
         
-        if(filters[6] == false && !caught)
-            return false;
-        if(filters[7] == false && !want)
-            return false;
-        if(filters[8] == false && !seen)
-            return false;
-        if(filters[9] == false && !(multiples > 0))
-            return false;
-        if(filters[11] == false && !trade)
-            return false;
+
         */
         
         

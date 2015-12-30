@@ -6,6 +6,8 @@
 package mainWindow;
 
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.table.TableModel;
@@ -60,6 +62,8 @@ public class mainWindow extends javax.swing.JFrame {
         tradeCheck = new javax.swing.JCheckBox();
         allCollectionButton = new javax.swing.JButton();
         noCollectionButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         titlePanel = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         creditsLabel = new javax.swing.JLabel();
@@ -96,6 +100,7 @@ public class mainWindow extends javax.swing.JFrame {
         fairyBox = new javax.swing.JCheckBox();
         allTypeButton = new javax.swing.JButton();
         noTypeButton = new javax.swing.JButton();
+        strictBox = new javax.swing.JCheckBox();
         selectionPanel = new javax.swing.JPanel();
         selectedLabel = new javax.swing.JLabel();
         setCaughtBox = new javax.swing.JCheckBox();
@@ -116,7 +121,7 @@ public class mainWindow extends javax.swing.JFrame {
         selectedPokemonLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("PokéDox v 0.7");
+        setTitle("PokéDox v 0.8");
         setBackground(new java.awt.Color(255, 255, 255));
         setName("mainFrame"); // NOI18N
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -254,7 +259,6 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        wantCheck.setSelected(true);
         wantCheck.setText("Want");
         wantCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,7 +266,6 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        notHaveCheck.setSelected(true);
         notHaveCheck.setText("Don't Have");
         notHaveCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,7 +273,6 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        multiHaveCheck.setSelected(true);
         multiHaveCheck.setText("Have Multiple");
         multiHaveCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,7 +280,6 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        seenCheck.setSelected(true);
         seenCheck.setText("Seen");
         seenCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,7 +287,6 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        tradeCheck.setSelected(true);
         tradeCheck.setText("Trade");
         tradeCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,19 +294,29 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        allCollectionButton.setText("Select All");
+        allCollectionButton.setText("All");
         allCollectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 allCollectionButtonActionPerformed(evt);
             }
         });
 
-        noCollectionButton.setText("Select None");
+        noCollectionButton.setText("None");
         noCollectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 noCollectionButtonActionPerformed(evt);
             }
         });
+
+        jButton2.setText("Default");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defaultCollectionButton(evt);
+            }
+        });
+
+        jLabel1.setText("?");
+        jLabel1.setToolTipText("<html><p>Caught:   Shows all if enabled, only uncaught if disabled</p>\n<p>Have Multiple:    Shows all if disabled, only those with multiples if enabled</p>\n<p>Want:\t          Shows all if disabled, only those marked 'want' if enabled</p>\n<p>Trade:\t          Shows all if disabled, only those marked to trade if enabled</p>\n<p>Don't Have:       Shows all if disabled, only those uncaught if enabled</p>\n<p>Seen:                Shows all if disabled, only seen if enabled</p></html>");
 
         javax.swing.GroupLayout collectionFilterPanelLayout = new javax.swing.GroupLayout(collectionFilterPanel);
         collectionFilterPanel.setLayout(collectionFilterPanelLayout);
@@ -314,14 +324,12 @@ public class mainWindow extends javax.swing.JFrame {
             collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(collectionFilterPanelLayout.createSequentialGroup()
                 .addComponent(collectionLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(collectionFilterPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(collectionFilterPanelLayout.createSequentialGroup()
-                        .addComponent(allCollectionButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(noCollectionButton))
                     .addGroup(collectionFilterPanelLayout.createSequentialGroup()
                         .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(caughtCheck)
@@ -333,13 +341,22 @@ public class mainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(seenCheck)
-                            .addComponent(tradeCheck))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(tradeCheck))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(collectionFilterPanelLayout.createSequentialGroup()
+                        .addComponent(allCollectionButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(noCollectionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)))
+                .addContainerGap())
         );
         collectionFilterPanelLayout.setVerticalGroup(
             collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(collectionFilterPanelLayout.createSequentialGroup()
-                .addComponent(collectionLabel)
+                .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(collectionLabel)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caughtCheck)
@@ -353,13 +370,14 @@ public class mainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(allCollectionButton)
-                    .addComponent(noCollectionButton)))
+                    .addComponent(noCollectionButton)
+                    .addComponent(jButton2)))
         );
 
         titlePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        titleLabel.setText("PokéDox v 0.7");
+        titleLabel.setText("PokéDox v 0.8");
 
         creditsLabel.setText("copyright 2015 by Luke Stanley");
 
@@ -412,7 +430,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         pokeTable.setModel(pokeList);
         pokeTable.setOpaque(false);
-        pokeTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        pokeTable.getTableHeader().setReorderingAllowed(false);
         tableScrollPane.setViewportView(pokeTable);
         if (pokeTable.getColumnModel().getColumnCount() > 0) {
             pokeTable.getColumnModel().getColumn(0).setMinWidth(0);
@@ -689,58 +707,72 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
+        strictBox.setText("Strict Match");
+        strictBox.setToolTipText("If checked, will exclude unselected types, even if second type is permitted");
+        strictBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                strictBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout typeFiltersPanelLayout = new javax.swing.GroupLayout(typeFiltersPanel);
         typeFiltersPanel.setLayout(typeFiltersPanelLayout);
         typeFiltersPanelLayout.setHorizontalGroup(
             typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(typeFiltersPanelLayout.createSequentialGroup()
                 .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fightingBox)
+                    .addComponent(flyingBox)
+                    .addComponent(poisonBox)
+                    .addComponent(normalBox)
+                    .addComponent(steelBox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(typeFiltersPanelLayout.createSequentialGroup()
                         .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fightingBox)
-                            .addComponent(flyingBox)
-                            .addComponent(poisonBox)
-                            .addComponent(normalBox)
-                            .addComponent(steelBox))
+                            .addGroup(typeFiltersPanelLayout.createSequentialGroup()
+                                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(electricBox)
+                                    .addComponent(grassBox)
+                                    .addComponent(waterBox))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(bugBox, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ghostBox, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rockBox, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGroup(typeFiltersPanelLayout.createSequentialGroup()
+                                .addComponent(fireBox)
+                                .addGap(16, 16, 16)
+                                .addComponent(groundBox)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(typeFiltersPanelLayout.createSequentialGroup()
-                                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(typeFiltersPanelLayout.createSequentialGroup()
-                                        .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(electricBox)
-                                            .addComponent(grassBox)
-                                            .addComponent(waterBox))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(bugBox, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ghostBox, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(rockBox, javax.swing.GroupLayout.Alignment.LEADING)))
-                                    .addGroup(typeFiltersPanelLayout.createSequentialGroup()
-                                        .addComponent(fireBox)
-                                        .addGap(16, 16, 16)
-                                        .addComponent(groundBox)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dragonBox)
-                                    .addComponent(iceBox)
-                                    .addComponent(psychicBox)
-                                    .addComponent(darkBox))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(typeFiltersPanelLayout.createSequentialGroup()
-                                .addComponent(fairyBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(allTypeButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(noTypeButton))))
-                    .addComponent(typeFiltersLabel))
+                            .addComponent(dragonBox)
+                            .addComponent(iceBox)
+                            .addComponent(psychicBox)
+                            .addComponent(darkBox)
+                            .addComponent(strictBox))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(typeFiltersPanelLayout.createSequentialGroup()
+                        .addComponent(fairyBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(allTypeButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(noTypeButton)))
                 .addContainerGap())
+            .addGroup(typeFiltersPanelLayout.createSequentialGroup()
+                .addComponent(typeFiltersLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         typeFiltersPanelLayout.setVerticalGroup(
             typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(typeFiltersPanelLayout.createSequentialGroup()
-                .addComponent(typeFiltersLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(typeFiltersPanelLayout.createSequentialGroup()
+                        .addComponent(typeFiltersLabel)
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, typeFiltersPanelLayout.createSequentialGroup()
+                        .addComponent(strictBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(normalBox)
                     .addComponent(fireBox)
@@ -852,7 +884,7 @@ public class mainWindow extends javax.swing.JFrame {
                                     .addComponent(markMultiButton)))
                             .addComponent(markMultiBox))
                         .addGap(18, 18, 18)
-                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(selectionPanelLayout.createSequentialGroup()
                                 .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(markTradeBox)
@@ -862,9 +894,9 @@ public class mainWindow extends javax.swing.JFrame {
                                     .addComponent(markNotSeenButton)
                                     .addComponent(markNotTradeButton)))
                             .addGroup(selectionPanelLayout.createSequentialGroup()
-                                .addComponent(setMultipleField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(setMultipleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(setMultipleField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(setMultipleButton)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         selectionPanelLayout.setVerticalGroup(
@@ -990,12 +1022,6 @@ public class mainWindow extends javax.swing.JFrame {
     
     }//GEN-LAST:event_kalosCheckActionPerformed
 
-    private void bugBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bugBoxActionPerformed
-        // TODO add your handling code here:
-            pokeList.sort(getFilters());
-    
-    }//GEN-LAST:event_bugBoxActionPerformed
-
     private void allCollectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allCollectionButtonActionPerformed
         // TODO add your handling code here:
         wantCheck.setSelected(true);
@@ -1004,7 +1030,7 @@ public class mainWindow extends javax.swing.JFrame {
         caughtCheck.setSelected(true);
         tradeCheck.setSelected(true);
         seenCheck.setSelected(true);
-     //   pokeList.sort(getFilters());
+        pokeList.sort(getFilters());
         
     }//GEN-LAST:event_allCollectionButtonActionPerformed
 
@@ -1045,52 +1071,8 @@ public class mainWindow extends javax.swing.JFrame {
         caughtCheck.setSelected(false);
         tradeCheck.setSelected(false);
         seenCheck.setSelected(false);
-   //     pokeList.sort(getFilters());
+        pokeList.sort(getFilters());
     }//GEN-LAST:event_noCollectionButtonActionPerformed
-
-    private void allTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allTypeButtonActionPerformed
-       normalBox.setSelected(true);
-       fightingBox.setSelected(true);
-       flyingBox.setSelected(true);
-       poisonBox.setSelected(true);
-       steelBox.setSelected(true);
-       fireBox.setSelected(true);
-       waterBox.setSelected(true);
-       grassBox.setSelected(true);
-       electricBox.setSelected(true);
-       fairyBox.setSelected(true);
-       groundBox.setSelected(true);
-       rockBox.setSelected(true);
-       bugBox.setSelected(true);
-       ghostBox.setSelected(true);
-       psychicBox.setSelected(true);
-       iceBox.setSelected(true);
-       dragonBox.setSelected(true);
-       darkBox.setSelected(true);
-       pokeList.sort(getFilters());
-    }//GEN-LAST:event_allTypeButtonActionPerformed
-
-    private void noTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noTypeButtonActionPerformed
-       normalBox.setSelected(false);
-       fightingBox.setSelected(false);
-       flyingBox.setSelected(false);
-       poisonBox.setSelected(false);
-       steelBox.setSelected(false);
-       fireBox.setSelected(false);
-       waterBox.setSelected(false);
-       grassBox.setSelected(false);
-       electricBox.setSelected(false);
-       fairyBox.setSelected(false);
-       groundBox.setSelected(false);
-       rockBox.setSelected(false);
-       bugBox.setSelected(false);
-       ghostBox.setSelected(false);
-       psychicBox.setSelected(false);
-       iceBox.setSelected(false);
-       dragonBox.setSelected(false);
-       darkBox.setSelected(false);
-       pokeList.sort(getFilters());
-    }//GEN-LAST:event_noTypeButtonActionPerformed
 
     private void setMultipleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setMultipleFieldActionPerformed
         // TODO add your handling code here:
@@ -1120,11 +1102,6 @@ public class mainWindow extends javax.swing.JFrame {
          pokeList.sort(getFilters());
     }//GEN-LAST:event_wantCheckActionPerformed
 
-    private void waterBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterBoxActionPerformed
-        // TODO add your handling code here:
-         pokeList.sort(getFilters());
-    }//GEN-LAST:event_waterBoxActionPerformed
-
     private void markCaughtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markCaughtButtonActionPerformed
         // TODO add your handling code here:
         pokeList.deleteCharmander();
@@ -1134,16 +1111,92 @@ public class mainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         pokeList.addPikachu();
     }//GEN-LAST:event_markWantButtonActionPerformed
+
+    private void defaultCollectionButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultCollectionButton
+        // TODO add your handling code here:
+        wantCheck.setSelected(false);
+        multiHaveCheck.setSelected(false);
+        notHaveCheck.setSelected(false);
+        caughtCheck.setSelected(true);
+        tradeCheck.setSelected(false);
+        seenCheck.setSelected(false);
+        pokeList.sort(getFilters());
+    }//GEN-LAST:event_defaultCollectionButton
+
+    private void strictBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strictBoxActionPerformed
+        // TODO add your handling code here:
+        pokeList.sort(getFilters());
+    }//GEN-LAST:event_strictBoxActionPerformed
+
+    private void noTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noTypeButtonActionPerformed
+        normalBox.setSelected(false);
+        fightingBox.setSelected(false);
+        flyingBox.setSelected(false);
+        poisonBox.setSelected(false);
+        steelBox.setSelected(false);
+        fireBox.setSelected(false);
+        waterBox.setSelected(false);
+        grassBox.setSelected(false);
+        electricBox.setSelected(false);
+        fairyBox.setSelected(false);
+        groundBox.setSelected(false);
+        rockBox.setSelected(false);
+        bugBox.setSelected(false);
+        ghostBox.setSelected(false);
+        psychicBox.setSelected(false);
+        iceBox.setSelected(false);
+        dragonBox.setSelected(false);
+        darkBox.setSelected(false);
+        pokeList.sort(getFilters());
+    }//GEN-LAST:event_noTypeButtonActionPerformed
+
+    private void allTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allTypeButtonActionPerformed
+        normalBox.setSelected(true);
+        fightingBox.setSelected(true);
+        flyingBox.setSelected(true);
+        poisonBox.setSelected(true);
+        steelBox.setSelected(true);
+        fireBox.setSelected(true);
+        waterBox.setSelected(true);
+        grassBox.setSelected(true);
+        electricBox.setSelected(true);
+        fairyBox.setSelected(true);
+        groundBox.setSelected(true);
+        rockBox.setSelected(true);
+        bugBox.setSelected(true);
+        ghostBox.setSelected(true);
+        psychicBox.setSelected(true);
+        iceBox.setSelected(true);
+        dragonBox.setSelected(true);
+        darkBox.setSelected(true);
+        pokeList.sort(getFilters());
+    }//GEN-LAST:event_allTypeButtonActionPerformed
+
+    private void waterBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterBoxActionPerformed
+        // TODO add your handling code here:
+        pokeList.sort(getFilters());
+    }//GEN-LAST:event_waterBoxActionPerformed
+
+    private void bugBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bugBoxActionPerformed
+        // TODO add your handling code here:
+        pokeList.sort(getFilters());
+
+    }//GEN-LAST:event_bugBoxActionPerformed
     
     boolean[] getFilters()
     {
+        try {
+            Thread.sleep(10);               // hopfully this will help with race conditions. Guess it is sloppy, but... 
+        } catch (InterruptedException ex) {
+            Logger.getLogger(mainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         boolean[] vals = {kantoCheck.isSelected(), johtoCheck.isSelected(), hoennCheck.isSelected(), sinnohCheck.isSelected(), unovaCheck.isSelected(), kalosCheck.isSelected(), 
                           caughtCheck.isSelected(), wantCheck.isSelected(), seenCheck.isSelected(), multiHaveCheck.isSelected(), notHaveCheck.isSelected(), tradeCheck.isSelected(), 
                           normalBox.isSelected(), fightingBox.isSelected(), flyingBox.isSelected(), poisonBox.isSelected(),
                           groundBox.isSelected(), rockBox.isSelected(), bugBox.isSelected(), ghostBox.isSelected(),
                           steelBox.isSelected(), fireBox.isSelected(),waterBox.isSelected(), grassBox.isSelected(),
                           electricBox.isSelected(), psychicBox.isSelected(), iceBox.isSelected(), dragonBox.isSelected(),      
-                          darkBox.isSelected(), fairyBox.isSelected()};
+                          darkBox.isSelected(), fairyBox.isSelected(), strictBox.isSelected() };
         return vals;
     }
     
@@ -1214,6 +1267,8 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel iconPanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JCheckBox johtoCheck;
     private javax.swing.JCheckBox kalosCheck;
@@ -1252,6 +1307,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField setMultipleField;
     private javax.swing.JCheckBox sinnohCheck;
     private javax.swing.JCheckBox steelBox;
+    private javax.swing.JCheckBox strictBox;
     private javax.swing.JPanel tablePanel;
     private javax.swing.JScrollPane tableScrollPane;
     private javax.swing.JLabel titleLabel;

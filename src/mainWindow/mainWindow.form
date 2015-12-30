@@ -7,7 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Pok&#xe9;Dox v 0.7"/>
+    <Property name="title" type="java.lang.String" value="Pok&#xe9;Dox v 0.8"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
@@ -262,17 +262,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="collectionLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="allCollectionButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="noCollectionButton" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="caughtCheck" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="multiHaveCheck" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -287,16 +284,27 @@
                               <Component id="seenCheck" min="-2" max="-2" attributes="0"/>
                               <Component id="tradeCheck" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="allCollectionButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="noCollectionButton" min="-2" pref="81" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="collectionLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="collectionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="caughtCheck" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -313,6 +321,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="allCollectionButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="noCollectionButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -340,7 +349,6 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="wantCheck">
           <Properties>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Want"/>
           </Properties>
           <Events>
@@ -349,7 +357,6 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="notHaveCheck">
           <Properties>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Don&apos;t Have"/>
           </Properties>
           <Events>
@@ -358,7 +365,6 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="multiHaveCheck">
           <Properties>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Have Multiple"/>
           </Properties>
           <Events>
@@ -367,7 +373,6 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="seenCheck">
           <Properties>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Seen"/>
           </Properties>
           <Events>
@@ -376,7 +381,6 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="tradeCheck">
           <Properties>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Trade"/>
           </Properties>
           <Events>
@@ -385,7 +389,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="allCollectionButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Select All"/>
+            <Property name="text" type="java.lang.String" value="All"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="allCollectionButtonActionPerformed"/>
@@ -393,11 +397,25 @@
         </Component>
         <Component class="javax.swing.JButton" name="noCollectionButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Select None"/>
+            <Property name="text" type="java.lang.String" value="None"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noCollectionButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Default"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="defaultCollectionButton"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="?"/>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;p&gt;Caught:   Shows all if enabled, only uncaught if disabled&lt;/p&gt;&#xa;&lt;p&gt;Have Multiple:    Shows all if disabled, only those with multiples if enabled&lt;/p&gt;&#xa;&lt;p&gt;Want:&#x9;          Shows all if disabled, only those marked &apos;want&apos; if enabled&lt;/p&gt;&#xa;&lt;p&gt;Trade:&#x9;          Shows all if disabled, only those marked to trade if enabled&lt;/p&gt;&#xa;&lt;p&gt;Don&apos;t Have:       Shows all if disabled, only those uncaught if enabled&lt;/p&gt;&#xa;&lt;p&gt;Seen:                Shows all if disabled, only seen if enabled&lt;/p&gt;&lt;/html&gt;"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -450,7 +468,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Pok&#xe9;Dox v 0.7"/>
+            <Property name="text" type="java.lang.String" value="Pok&#xe9;Dox v 0.8"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="creditsLabel">
@@ -554,11 +572,8 @@
                   <TableColumnModel selectionModel="0"/>
                 </Property>
                 <Property name="opaque" type="boolean" value="false"/>
-                <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
-                  <JTableSelectionModel selectionMode="0"/>
-                </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -608,66 +623,74 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="fightingBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="flyingBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="poisonBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="normalBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="steelBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fightingBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="flyingBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="poisonBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="normalBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="steelBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="electricBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="grassBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="waterBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="bugBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ghostBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rockBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="fireBox" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="groundBox" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="electricBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="grassBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="waterBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="bugBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ghostBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="rockBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="fireBox" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                          <Component id="groundBox" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="dragonBox" min="-2" max="-2" attributes="0"/>
-                                      <Component id="iceBox" min="-2" max="-2" attributes="0"/>
-                                      <Component id="psychicBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="darkBox" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="fairyBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="allTypeButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="noTypeButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="dragonBox" min="-2" max="-2" attributes="0"/>
+                              <Component id="iceBox" min="-2" max="-2" attributes="0"/>
+                              <Component id="psychicBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="darkBox" min="-2" max="-2" attributes="0"/>
+                              <Component id="strictBox" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="typeFiltersLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="fairyBox" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="allTypeButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="noTypeButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="typeFiltersLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="19" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="typeFiltersLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="typeFiltersLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="strictBox" min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="normalBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fireBox" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -896,6 +919,15 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noTypeButtonActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JCheckBox" name="strictBox">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Strict Match"/>
+            <Property name="toolTipText" type="java.lang.String" value="If checked, will exclude unselected types, even if second type is permitted"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="strictBoxActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="selectionPanel">
@@ -935,7 +967,7 @@
                               <Component id="markMultiBox" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="markTradeBox" min="-2" max="-2" attributes="0"/>
@@ -947,10 +979,10 @@
                                       <Component id="markNotTradeButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="setMultipleField" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="setMultipleButton" min="-2" pref="89" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="setMultipleField" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="setMultipleButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
