@@ -109,7 +109,7 @@ public final class Pokemon{
         img = masterImg.getSubimage(imgX, imgY, 33 ,33);
   */  }
     
-    boolean includeQuery(boolean[] filters) // checks pokemon against filters and returns to PokeList if it should be included or not
+    boolean includeQuery(boolean[] filters) // checks pokemon against filters and returns to PokeList if it should be included or not (false = do not include)
     {   
         /* filters format:
         kanto       johto   hoenn           sinnoh      unova       kalos 
