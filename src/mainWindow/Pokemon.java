@@ -120,10 +120,28 @@ public final class Pokemon{
         rock(6)     ice(15)     bug(7)          dragon(16)
         ghost(8)    dark(17)
         types:
-        "NRM", "FGT", "FLY", "PSN", "GRD", "RCK", "BUG", "GHT", "STL", "FIR", "WTR", "GRS", "ELC", "PSY", "ICE", "DRG", "DRK", "FRY"
+        "NRM", "FGT", "FLY", "PSN",
+        "GRD", "RCK", "BUG", "GHT",
+        "STL", "FIR", "WTR", "GRS",
+        "ELC", "PSY", "ICE", "DRG",
+        "DRK", "FRY"
         /*
         ...  check against filters
         */
+        boolean typeFlag = true;
+        
+        if(filters[getType1() + 11] == true)
+        {
+            // passes typecheck
+        }
+        else
+        {
+            if(getType2() == 0)
+                return false;
+            if(filters[getType2() + 11] == false)
+                return false;
+        }
+                
         
         if(filters[0] == true)   // kanto check  (if Kanto is to be included and in Kanto dex)
         {
@@ -194,7 +212,11 @@ public final class Pokemon{
             if((kalosDex > 0))
                 return false;
         }
-        /*
+      /*  
+
+        
+        
+        
         if(filters[6] == false && !caught)
             return false;
         if(filters[7] == false && !want)
@@ -205,44 +227,9 @@ public final class Pokemon{
             return false;
         if(filters[11] == false && !trade)
             return false;
-        
-        if(filters[12] == true && (getType1() == 1 || getType2() == 1))
-            return true;
-        if(filters[13] == true && (getType1() == 10 || getType2() == 10))
-            return true;
-        if(filters[14] == true && (getType1() == 2 || getType2() == 2))
-            return true;
-        if(filters[15] == true && (getType1() == 11 || getType2() == 11))
-            return true;
-        if(filters[16] == true && (getType1() == 3 || getType2() == 3))
-            return true;
-        if(filters[17] == true && (getType1() == 12 || getType2() == 12))
-            return true;
-        if(filters[18] == true && (getType1() == 4 || getType2() == 4))
-            return true;
-        if(filters[19] == true && (getType1() == 13 || getType2() == 13))
-            return true;
-        if(filters[20] == true && (getType1() == 9 || getType2() == 9))
-            return true;
-        if(filters[21] == true && (getType1() == 18 || getType2() == 18))
-            return true;
-        if(filters[22] == true && (getType1() == 5 || getType2() == 5))
-            return true;
-        if(filters[23] == true && (getType1() == 14 || getType2() == 14))
-            return true;
-        if(filters[24] == true && (getType1() == 6 || getType2() == 6))
-            return true;
-        if(filters[25] == true && (getType1() == 15 || getType2() == 15))
-            return true;
-        if(filters[26] == true && (getType1() == 7 || getType2() == 7))
-            return true;
-        if(filters[27] == true && (getType1() == 16 || getType2() == 16))
-            return true;
-        if(filters[28] == true && (getType1() == 8 || getType2() == 8))
-            return true;
-        if(filters[29] == true && (getType1() == 17 || getType2() == 17))
-            return true;
         */
+        
+        
         return true;
     }
     

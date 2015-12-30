@@ -10,7 +10,7 @@ VERSION 0.7 INCLUDES:
     -   Finished (visually) GUI
     -   Completed Pokemon list with dex numbers/types
 
-Blockers for 0.8:
+'Blockers' for 0.8:
 
     -   Filter for types and collection
     -   Region filter occasionally fails with ArrayIndexOutOfBounds exceptions: probably a race condition somewhere (may be in button implementation)

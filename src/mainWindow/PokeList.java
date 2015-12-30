@@ -34,7 +34,6 @@ class PokeList extends AbstractTableModel{
     {
         int tableSize = data.size();
         data.clear();
-        fireTableRowsDeleted(0, tableSize - 1);
         for(int i = 0; i < masterList.size(); i++)
         {
             if(masterList.get(i).includeQuery(filters))
@@ -46,7 +45,9 @@ class PokeList extends AbstractTableModel{
         }
         if(data.isEmpty())
         {
-           fireTableRowsDeleted(0, tableSize);
+            masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
+            fireTableDataChanged();
+            //fireTableRowsDeleted(0, tableSize);
         }
         else
         {

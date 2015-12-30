@@ -65,7 +65,7 @@ public class mainWindow extends javax.swing.JFrame {
         creditsLabel = new javax.swing.JLabel();
         iconPanel = new javax.swing.JPanel();
         iconLabel = new javax.swing.JLabel();
-        messageLabel = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         tablePanel = new javax.swing.JPanel();
         tableScrollPane = new javax.swing.JScrollPane();
         pokeList = new PokeList();
@@ -376,7 +376,9 @@ public class mainWindow extends javax.swing.JFrame {
             .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        messageLabel.setText("https://github.com/lukexorz/PokeDox");
+        jTextField1.setEditable(false);
+        jTextField1.setText("https://github.com/lukexorz/PokeDox");
+        jTextField1.setBorder(null);
 
         javax.swing.GroupLayout titlePanelLayout = new javax.swing.GroupLayout(titlePanel);
         titlePanel.setLayout(titlePanelLayout);
@@ -384,15 +386,13 @@ public class mainWindow extends javax.swing.JFrame {
             titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(titlePanelLayout.createSequentialGroup()
                 .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(titlePanelLayout.createSequentialGroup()
-                        .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(titleLabel)
+                        .addGroup(titlePanelLayout.createSequentialGroup()
                             .addComponent(creditsLabel)
-                            .addComponent(titleLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(titlePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(messageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGap(34, 34, 34)))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(iconPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -402,8 +402,8 @@ public class mainWindow extends javax.swing.JFrame {
                 .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(creditsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(messageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(iconPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -794,14 +794,14 @@ public class mainWindow extends javax.swing.JFrame {
 
         markMultiButton.setText("Mark...");
 
-        markWantButton.setText("pik");
+        markWantButton.setText("Mark...");
         markWantButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markWantButtonActionPerformed(evt);
             }
         });
 
-        markCaughtButton.setText("chrm");
+        markCaughtButton.setText("Mark...");
         markCaughtButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markCaughtButtonActionPerformed(evt);
@@ -838,6 +838,7 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(selectionPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(selectionPanelLayout.createSequentialGroup()
                         .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(selectionPanelLayout.createSequentialGroup()
@@ -863,8 +864,7 @@ public class mainWindow extends javax.swing.JFrame {
                             .addGroup(selectionPanelLayout.createSequentialGroup()
                                 .addComponent(setMultipleField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(setMultipleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(setMultipleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         selectionPanelLayout.setVerticalGroup(
@@ -1071,7 +1071,7 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_allTypeButtonActionPerformed
 
     private void noTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noTypeButtonActionPerformed
-            normalBox.setSelected(false);
+       normalBox.setSelected(false);
        fightingBox.setSelected(false);
        flyingBox.setSelected(false);
        poisonBox.setSelected(false);
@@ -1139,11 +1139,11 @@ public class mainWindow extends javax.swing.JFrame {
     {
         boolean[] vals = {kantoCheck.isSelected(), johtoCheck.isSelected(), hoennCheck.isSelected(), sinnohCheck.isSelected(), unovaCheck.isSelected(), kalosCheck.isSelected(), 
                           caughtCheck.isSelected(), wantCheck.isSelected(), seenCheck.isSelected(), multiHaveCheck.isSelected(), notHaveCheck.isSelected(), tradeCheck.isSelected(), 
-                          normalBox.isSelected(), fireBox.isSelected(), fightingBox.isSelected(), waterBox.isSelected(), 
-                          flyingBox.isSelected(), grassBox.isSelected(), poisonBox.isSelected(), electricBox.isSelected(),
-                          steelBox.isSelected(), fairyBox.isSelected(), groundBox.isSelected(), psychicBox.isSelected(), 
-                          rockBox.isSelected(), iceBox.isSelected(), bugBox.isSelected(), dragonBox.isSelected(), 
-                          ghostBox.isSelected(), darkBox.isSelected()};
+                          normalBox.isSelected(), fightingBox.isSelected(), flyingBox.isSelected(), poisonBox.isSelected(),
+                          groundBox.isSelected(), rockBox.isSelected(), bugBox.isSelected(), ghostBox.isSelected(),
+                          steelBox.isSelected(), fireBox.isSelected(),waterBox.isSelected(), grassBox.isSelected(),
+                          electricBox.isSelected(), psychicBox.isSelected(), iceBox.isSelected(), dragonBox.isSelected(),      
+                          darkBox.isSelected(), fairyBox.isSelected()};
         return vals;
     }
     
@@ -1214,6 +1214,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel iconPanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JCheckBox johtoCheck;
     private javax.swing.JCheckBox kalosCheck;
     private javax.swing.JCheckBox kantoCheck;
@@ -1226,7 +1227,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox markTradeBox;
     private javax.swing.JCheckBox markWantBox;
     private javax.swing.JButton markWantButton;
-    private javax.swing.JLabel messageLabel;
     private javax.swing.JCheckBox multiHaveCheck;
     private javax.swing.JButton noCollectionButton;
     private javax.swing.JButton noRegionButton;
