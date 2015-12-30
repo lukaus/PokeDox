@@ -15,13 +15,15 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Lukaus
  */
+
+
 public class mainWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form mainWindow
      */
     
-    PokeList pokeList;
+    PokeList pokeList = new PokeList();
     public mainWindow() {
         initComponents(); 
         this.setIconImage(new ImageIcon(getClass().getResource("Pokeball_icon.png")).getImage()); 
@@ -116,9 +118,7 @@ public class mainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PokéDox v 0.1");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(803, 2147483647));
         setName("mainFrame"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(803, 666));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 formComponentResized(evt);
@@ -376,7 +376,7 @@ public class mainWindow extends javax.swing.JFrame {
             .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        messageLabel.setText("Welcome!");
+        messageLabel.setText("https://github.com/lukexorz/PokeDox");
 
         javax.swing.GroupLayout titlePanelLayout = new javax.swing.GroupLayout(titlePanel);
         titlePanel.setLayout(titlePanelLayout);
@@ -410,6 +410,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         tableScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        pokeTable.setModel(pokeList);
         pokeTable.setOpaque(false);
         pokeTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tableScrollPane.setViewportView(pokeTable);
@@ -793,9 +794,19 @@ public class mainWindow extends javax.swing.JFrame {
 
         markMultiButton.setText("Mark...");
 
-        markWantButton.setText("Mark...");
+        markWantButton.setText("pik");
+        markWantButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                markWantButtonActionPerformed(evt);
+            }
+        });
 
-        markCaughtButton.setText("Mark...");
+        markCaughtButton.setText("chrm");
+        markCaughtButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                markCaughtButtonActionPerformed(evt);
+            }
+        });
 
         markNotSeenButton.setText("Mark...");
 
@@ -958,7 +969,7 @@ public class mainWindow extends javax.swing.JFrame {
 
     private void kantoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kantoCheckActionPerformed
         // TODO add your handling code here:
-        pokeList.sort(getFilters());
+            pokeList.sort(getFilters());
     }//GEN-LAST:event_kantoCheckActionPerformed
 
     private void sinnohCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinnohCheckActionPerformed
@@ -1113,6 +1124,16 @@ public class mainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
          pokeList.sort(getFilters());
     }//GEN-LAST:event_waterBoxActionPerformed
+
+    private void markCaughtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markCaughtButtonActionPerformed
+        // TODO add your handling code here:
+        pokeList.deleteCharmander();
+    }//GEN-LAST:event_markCaughtButtonActionPerformed
+
+    private void markWantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markWantButtonActionPerformed
+        // TODO add your handling code here:
+        pokeList.addPikachu();
+    }//GEN-LAST:event_markWantButtonActionPerformed
     
     boolean[] getFilters()
     {

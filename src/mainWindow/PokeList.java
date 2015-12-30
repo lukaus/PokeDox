@@ -32,15 +32,19 @@ class PokeList extends AbstractTableModel{
     
     void sort(boolean[] filters)
     {
-        masterList.get(1);
-        data = new ArrayList<Pokemon>();
+        int tableSize = data.size();
+        data.clear();
+        fireTableRowsDeleted(0, tableSize - 1);
         for(int i = 0; i < masterList.size(); i++)
         {
             if(masterList.get(i).includeQuery(filters))
+            {
                 data.add(masterList.get(i));
+                fireTableRowsInserted(data.size()-1,data.size()-1);
+            }
             
         }
-        fireTableDataChanged();
+        fireTableStructureChanged();
     }
     
     
@@ -94,7 +98,7 @@ class PokeList extends AbstractTableModel{
 
     @Override
     public int getRowCount() {
-       return masterList.size();
+       return data.size();
     }
 
     @Override
@@ -119,5 +123,16 @@ class PokeList extends AbstractTableModel{
         } else {
             return true;
         }
+    }
+
+    void deleteCharmander() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        data.remove(0);
+        fireTableRowsDeleted(0,0);
+    }
+
+    void addPikachu() {
+        data.add(new Pokemon(1, 2, 3, 4, 5, 6, "Pikashoo", 1, 2, true, true, true, true, 1, 1));
+        fireTableRowsInserted(data.size()-1,data.size()-1);
     }
 }
