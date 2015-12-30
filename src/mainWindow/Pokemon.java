@@ -125,19 +125,76 @@ public final class Pokemon{
         ...  check against filters
         */
         
-        if((filters[0] == false && natlDex <= 151))   // kanto check  (if Kanto is to be excluded and in Kanto dex)
-            return false;
-        if((johtoDex > 0) && filters[1] == false)    // johto check
-            return false;
-        if((hoennDex > 0) && filters[2] == false)    // hoenn check
-            return false;
-        if((sinnohDex > 0) && filters[3] == false)   // sinnoh check
-            return false;
-        if((unovaDex >= 0) && filters[4] == false)    // unova check, Victini is 0
-            return false;
-        if((kalosDex > 0) && filters[5] == false)    // kalos check
-            return false;
+        if(filters[0] == true)   // kanto check  (if Kanto is to be included and in Kanto dex)
+        {
+            if(natlDex <= 151)
+                return true;
+        }
+        else
+        {
+            if(natlDex <= 151)
+                return false;
+        }
         
+        if(filters[1] == true)    // johto check
+        {
+            if(johtoDex > 0)
+            {
+                return true;
+            }
+        }
+        else
+        {
+            if(johtoDex > 0)
+            {
+                return false;
+            }
+        }
+            
+        if(filters[2] == true)    // hoenn check
+        {
+            if((hoennDex > 0))
+                return true;
+        }       
+        else
+        {
+            if((hoennDex > 0))
+                return false;
+        }
+        
+        if(filters[3] == true)    // sinnoh check
+        {
+            if((sinnohDex > 0))
+                return true;
+        }       
+        else
+        {
+            if((sinnohDex > 0))
+                return false;
+        }
+        
+        if(filters[4] == true)    // unova check, 0 included for Victini
+        {
+            if((unovaDex >= 0))
+                return true;
+        }       
+        else
+        {
+            if((unovaDex >= 0))
+                return false;
+        }
+        
+        if(filters[5] == true)    // kalos check
+        {
+            if((kalosDex > 0))
+                return true;
+        }       
+        else
+        {
+            if((kalosDex > 0))
+                return false;
+        }
+        /*
         if(filters[6] == false && !caught)
             return false;
         if(filters[7] == false && !want)
@@ -149,43 +206,43 @@ public final class Pokemon{
         if(filters[11] == false && !trade)
             return false;
         
-        if(filters[12] == false && (getType1() == 1 || getType2() == 1))
-            return false;
-        if(filters[13] == false && (getType1() == 10 || getType2() == 10))
-            return false;
-        if(filters[14] == false && (getType1() == 2 || getType2() == 2))
-            return false;
-        if(filters[15] == false && (getType1() == 11 || getType2() == 11))
-            return false;
-        if(filters[16] == false && (getType1() == 3 || getType2() == 3))
-            return false;
-        if(filters[17] == false && (getType1() == 12 || getType2() == 12))
-            return false;
-        if(filters[18] == false && (getType1() == 4 || getType2() == 4))
-            return false;
-        if(filters[19] == false && (getType1() == 13 || getType2() == 13))
-            return false;
-        if(filters[20] == false && (getType1() == 9 || getType2() == 9))
-            return false;
-        if(filters[21] == false && (getType1() == 18 || getType2() == 18))
-            return false;
-        if(filters[22] == false && (getType1() == 5 || getType2() == 5))
-            return false;
-        if(filters[23] == false && (getType1() == 14 || getType2() == 14))
-            return false;
-        if(filters[24] == false && (getType1() == 6 || getType2() == 6))
-            return false;
-        if(filters[25] == false && (getType1() == 15 || getType2() == 15))
-            return false;
-        if(filters[26] == false && (getType1() == 7 || getType2() == 7))
-            return false;
-        if(filters[27] == false && (getType1() == 16 || getType2() == 16))
-            return false;
-        if(filters[28] == false && (getType1() == 8 || getType2() == 8))
-            return false;
-        if(filters[29] == false && (getType1() == 17 || getType2() == 17))
-            return false;
-        
+        if(filters[12] == true && (getType1() == 1 || getType2() == 1))
+            return true;
+        if(filters[13] == true && (getType1() == 10 || getType2() == 10))
+            return true;
+        if(filters[14] == true && (getType1() == 2 || getType2() == 2))
+            return true;
+        if(filters[15] == true && (getType1() == 11 || getType2() == 11))
+            return true;
+        if(filters[16] == true && (getType1() == 3 || getType2() == 3))
+            return true;
+        if(filters[17] == true && (getType1() == 12 || getType2() == 12))
+            return true;
+        if(filters[18] == true && (getType1() == 4 || getType2() == 4))
+            return true;
+        if(filters[19] == true && (getType1() == 13 || getType2() == 13))
+            return true;
+        if(filters[20] == true && (getType1() == 9 || getType2() == 9))
+            return true;
+        if(filters[21] == true && (getType1() == 18 || getType2() == 18))
+            return true;
+        if(filters[22] == true && (getType1() == 5 || getType2() == 5))
+            return true;
+        if(filters[23] == true && (getType1() == 14 || getType2() == 14))
+            return true;
+        if(filters[24] == true && (getType1() == 6 || getType2() == 6))
+            return true;
+        if(filters[25] == true && (getType1() == 15 || getType2() == 15))
+            return true;
+        if(filters[26] == true && (getType1() == 7 || getType2() == 7))
+            return true;
+        if(filters[27] == true && (getType1() == 16 || getType2() == 16))
+            return true;
+        if(filters[28] == true && (getType1() == 8 || getType2() == 8))
+            return true;
+        if(filters[29] == true && (getType1() == 17 || getType2() == 17))
+            return true;
+        */
         return true;
     }
     
