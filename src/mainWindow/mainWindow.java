@@ -116,7 +116,7 @@ public class mainWindow extends javax.swing.JFrame {
         selectedPokemonLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("PokéDox v 0.1");
+        setTitle("PokéDox v 0.7");
         setBackground(new java.awt.Color(255, 255, 255));
         setName("mainFrame"); // NOI18N
         addComponentListener(new java.awt.event.ComponentAdapter() {
