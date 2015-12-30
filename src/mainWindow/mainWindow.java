@@ -1067,7 +1067,7 @@ public class mainWindow extends javax.swing.JFrame {
        iceBox.setSelected(true);
        dragonBox.setSelected(true);
        darkBox.setSelected(true);
-  //     pokeList.sort(getFilters());
+       pokeList.sort(getFilters());
     }//GEN-LAST:event_allTypeButtonActionPerformed
 
     private void noTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noTypeButtonActionPerformed
@@ -1089,7 +1089,7 @@ public class mainWindow extends javax.swing.JFrame {
        iceBox.setSelected(false);
        dragonBox.setSelected(false);
        darkBox.setSelected(false);
-   //    pokeList.sort(getFilters());
+       pokeList.sort(getFilters());
     }//GEN-LAST:event_noTypeButtonActionPerformed
 
     private void setMultipleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setMultipleFieldActionPerformed

@@ -44,7 +44,14 @@ class PokeList extends AbstractTableModel{
             }
             
         }
-        fireTableStructureChanged();
+        if(data.isEmpty())
+        {
+           fireTableRowsDeleted(0, tableSize);
+        }
+        else
+        {
+                fireTableDataChanged();
+        }
     }
     
     
