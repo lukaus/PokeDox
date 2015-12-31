@@ -120,11 +120,11 @@ public final class Pokemon implements Comparable<Pokemon>{
          * If already set to sort by given comparator, will set comparator negative
          * If negative, will sort decending. if already set to negative comparator, will set 0 and sort ascending national dex
         */
-        if (c < 0)
+        if (this.comparator < 0)
         {
             this.comparator = 0;
         }
-        if (c > 0)
+        if (this.comparator > 0)
         {
             this.comparator = (c * -1);
         }
