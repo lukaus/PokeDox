@@ -504,6 +504,18 @@ public class mainWindow extends javax.swing.JFrame {
 
         searchLabel.setText("Pokémon Search by name:");
 
+        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchFieldKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchFieldKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searchFieldKeyTyped(evt);
+            }
+        });
+
         allOrEvoFamRadioSelectionGroup.add(allPokemonButton);
         allPokemonButton.setSelected(true);
         allPokemonButton.setText("All Pokemon");
@@ -1182,11 +1194,33 @@ public class mainWindow extends javax.swing.JFrame {
         pokeList.sort(getFilters());
 
     }//GEN-LAST:event_bugBoxActionPerformed
+
+
+    private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
+        // TODO add your handling code here:
+      
+    //    String searchKey = searchField.getText();
+   //    pokeList.setSearchKey(searchKey);
+    //    pokeList.sort(getFilters());
+    }//GEN-LAST:event_searchFieldKeyTyped
+
+    private void searchFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyPressed
+        // TODO add your handling code here:
+      
+        
+    }//GEN-LAST:event_searchFieldKeyPressed
+
+    private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
+        // TODO add your handling code here:
+        String searchKey = searchField.getText();
+        pokeList.setSearchKey(searchKey);
+        pokeList.sort(getFilters());
+    }//GEN-LAST:event_searchFieldKeyReleased
     
     boolean[] getFilters()
     {
         try {
-            Thread.sleep(10);               // hopfully this will help with race conditions. Guess it is sloppy, but... 
+            Thread.sleep(10);               // hopefully this will help with race conditions. Guess it is sloppy, but... 
         } catch (InterruptedException ex) {
             Logger.getLogger(mainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }

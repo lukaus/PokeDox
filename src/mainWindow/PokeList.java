@@ -10,6 +10,8 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;  
 import javax.swing.table.AbstractTableModel;
 
@@ -22,7 +24,7 @@ class PokeList extends AbstractTableModel{
     private ArrayList<Pokemon> masterList;
     private ArrayList<Pokemon> data;
     private final String[] colTitles = new String[]{"#", "Name", "Type", "Johto#", "Hoenn#", "Sinnoh#", "Unova #", "Kalos #", "Caught", "Seen", "Want", "Trade", "Multiples"};
-    
+    String searchKey;
     
     PokeList()
     {
@@ -43,6 +45,9 @@ class PokeList extends AbstractTableModel{
             }
             
         }
+        
+        searchPokemon();
+        
         if(data.isEmpty())
         {
             masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
@@ -116,7 +121,9 @@ class PokeList extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return data.get(rowIndex).get(columnIndex);
+        if(getRowCount() > 0)
+            return data.get(rowIndex).get(columnIndex);
+        return new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1);
     }
     @Override
      public Class getColumnClass(int c) {
@@ -134,7 +141,7 @@ class PokeList extends AbstractTableModel{
     }
 
     void deleteCharmander() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
         data.remove(0);
         fireTableRowsDeleted(0,0);
     }
@@ -142,5 +149,32 @@ class PokeList extends AbstractTableModel{
     void addPikachu() {
         data.add(new Pokemon(1, 2, 3, 4, 5, 6, "Pikashoo", 1, 2, true, true, true, true, 1, 1));
         fireTableRowsInserted(data.size()-1,data.size()-1);
+    }
+
+   
+
+    void setSearchKey(String s) {
+        
+        searchKey = s;
+        searchPokemon();
+    }
+
+    private void searchPokemon() {
+       
+        for(int i = 0; i < data.size(); i++)
+        {
+            if(!data.get(i).getName().toLowerCase().contains(searchKey.toLowerCase()))
+            {
+                data.remove(i);
+                i--;
+            }
+        }
+        if(data.isEmpty())
+        {
+            masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
+            fireTableDataChanged();
+            //fireTableRowsDeleted(0, tableSize);
+        }
+        fireTableDataChanged();
     }
 }
