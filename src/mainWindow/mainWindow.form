@@ -54,8 +54,8 @@
                       <Component id="pokePicLabel" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pokePicPanel" min="-2" max="-2" attributes="0"/>
-                          <Component id="selectedPokemonLabel" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Component id="selectedPokemonLabel" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Component id="pokePicPanel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
@@ -582,7 +582,7 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(pokeList)"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="pokeList = new PokeList();"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="JTableHeader header = pokeTable.getTableHeader();&#xa;/**&#xa; * A mouse listener class which is used to handle mouse clicking event&#xa; * on column headers of a JTable.&#xa; * @author http://www.codejava.net/java-se/swing/how-to-handle-mouse-clicking-event-on-jtable-column-header&#xa; * as well as http://stackoverflow.com/questions/4615741/jtable-clickable-column-header&#xa; * Hope that is is an acceptable citation&#xa; */&#xa;header.addMouseListener(new MouseAdapter(){&#xa;@Override&#xa;      public void mouseClicked(MouseEvent mouseEvent) {&#xa;        Point point = mouseEvent.getPoint();&#xa;        int index = pokeTable.columnAtPoint(point);&#xa;        if (index &gt;= 0) {&#xa; JOptionPane.showMessageDialog(pokeTable, &quot;Column header #&quot; + index + &quot; is clicked&quot;);&#xa;          pokeList.colSort(index);&#xa;        }&#xa;      };&#xa;});"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="JTableHeader header = pokeTable.getTableHeader();&#xa;/**&#xa; * A mouse listener class which is used to handle mouse clicking event&#xa; * on column headers of a JTable.&#xa; * @author http://www.codejava.net/java-se/swing/how-to-handle-mouse-clicking-event-on-jtable-column-header&#xa; * as well as http://stackoverflow.com/questions/4615741/jtable-clickable-column-header&#xa; * Hope that is is an acceptable citation&#xa; */&#xa;header.addMouseListener(new MouseAdapter(){&#xa;@Override&#xa;      public void mouseClicked(MouseEvent mouseEvent) {&#xa;        Point point = mouseEvent.getPoint();&#xa;        int index = pokeTable.columnAtPoint(point);&#xa;        if (index &gt;= 0) {&#xa; //JOptionPane.showMessageDialog(pokeTable, &quot;Column header #&quot; + index + &quot; is clicked&quot;);&#xa;          pokeList.colSort(index);&#xa;        }&#xa;      };&#xa;});"/>
               </AuxValues>
             </Component>
           </SubComponents>

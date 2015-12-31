@@ -451,7 +451,7 @@ public class mainWindow extends javax.swing.JFrame {
                 Point point = mouseEvent.getPoint();
                 int index = pokeTable.columnAtPoint(point);
                 if (index >= 0) {
-                    JOptionPane.showMessageDialog(pokeTable, "Column header #" + index + " is clicked");
+                    //JOptionPane.showMessageDialog(pokeTable, "Column header #" + index + " is clicked");
                     pokeList.colSort(index);
                 }
             };
@@ -995,8 +995,8 @@ public class mainWindow extends javax.swing.JFrame {
                         .addComponent(pokePicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pokePicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(selectedPokemonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(selectedPokemonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pokePicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)))
                 .addContainerGap())
         );

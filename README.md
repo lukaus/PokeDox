@@ -25,4 +25,4 @@ TODO for final version (1.0):
 
 KNOWN BUGS:
 
-    -   Program will crash if any filters are applied if a column is sorted by DefaultTableRowSorter (So, I have disabled this for now)
+    -   Program will crash if any filters are applied if a column is sorted by DefaultTableRowSorter (So, I am writing my own sorter. Old one disabled for now)

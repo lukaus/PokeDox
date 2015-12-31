@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
  *
  * @author Lukaus
  */
-public final class Pokemon{
+public final class Pokemon implements Comparable<Pokemon>{
     static BufferedImage masterImg;
     private int natlDex;
     private int johtoDex;
@@ -23,6 +23,9 @@ public final class Pokemon{
     private int sinnohDex;
     private int unovaDex;
     private int kalosDex;
+    private int comparator; 
+
+
     private String name;
     private int type1;
     private int type2;
@@ -108,7 +111,28 @@ public final class Pokemon{
         
         img = masterImg.getSubimage(imgX, imgY, 33 ,33);
   */  }
-    
+    public int getComparator() {
+        return comparator;
+    }
+
+    public void setComparator(int c) {
+        /* comparator int will determine which to sort by, 0 will indicate not to sort. 
+         * If already set to sort by given comparator, will set comparator negative
+         * If negative, will sort decending. if already set to negative comparator, will set 0 and sort ascending national dex
+        */
+        if (c < 0)
+        {
+            this.comparator = 0;
+        }
+        if (c > 0)
+        {
+            this.comparator = (c * -1);
+        }
+        if (this.comparator == 0)
+        {
+            this.comparator = c;
+        }
+    }
     boolean includeQuery(boolean[] filters) // checks pokemon against filters and returns to PokeList if it should be included or not (false = do not include)
     {   
         /* filters format:
@@ -514,5 +538,221 @@ public final class Pokemon{
      */
     public void setImg(BufferedImage img) {
         this.img = img;
+    }
+
+    @Override
+    public int compareTo(Pokemon o) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /** this will sort by one of 13 comparators.
+         * comparator int will determine which to sort by, 0 will indicate not to sort. 
+         * If already set to sort by given comparator, will set comparator negative
+         * If negative, will sort decending. if already set to negative comparator, will set 0 and sort ascending national dex
+        * 1  = national dex
+        * 2  = name 
+        * 3  = type 
+        * 4  = johto dex    -1 goes to end no matter what!
+        * 5  = hoenn dex    ..
+        * 6  = sinnoh dex   ..
+        * 7  = unova dex    ..
+        * 8  = kalos dex    -1 goes to end no matter what!
+        * 9  = caught       
+        * 10 = seen
+        * 11 = want
+        * 12 = trade
+        * 13 = number of multiples
+        */
+        if(comparator == 0 || comparator == 1)
+        {
+            return this.getNatlDex() - o.getNatlDex();
+        }
+        if(comparator > 1)
+        {
+            if(comparator == 2)
+            {
+                
+            }
+            if(comparator == 3)
+            {
+                
+            }
+            if(comparator == 4)
+            {
+                if(this.getJohtoDex() == -1 && o.getJohtoDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getJohtoDex() == -1 && this.getJohtoDex() != -1)
+                {
+                    return -1;
+                }
+                
+                return this.getJohtoDex() - o.getJohtoDex();
+            }
+            if(comparator == 5)
+            {
+                if(this.getHoennDex() == -1 && o.getHoennDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getHoennDex() == -1 && this.getHoennDex() != -1)
+                {
+                    return -1;
+                }
+                return this.getHoennDex() - o.getHoennDex();
+            }
+            if(comparator == 6)
+            {
+                  if(this.getSinnohDex() == -1 && o.getSinnohDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getSinnohDex() == -1 && this.getSinnohDex() != -1)
+                {
+                    return -1;
+                }
+                return this.getSinnohDex() - o.getSinnohDex();
+            }
+            if(comparator == 7)
+            {
+                if(this.getUnovaDex() == -1 && o.getUnovaDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getUnovaDex() == -1 && this.getUnovaDex() != -1)
+                {
+                    return -1;
+                }
+                return this.getUnovaDex() - o.getUnovaDex();
+            }
+            if(comparator == 8)
+            {
+                if(this.getKalosDex() == -1 && o.getKalosDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getKalosDex() == -1 && this.getKalosDex() != -1)
+                {
+                    return -1;
+                }
+                return this.getKalosDex() - o.getKalosDex();
+            }
+            if(comparator == 9)
+            {
+                return Boolean.compare(this.isCaught(), o.isCaught());
+            }
+            if(comparator == 10)
+            {
+                return Boolean.compare(this.isSeen(), o.isSeen());
+            }
+            if(comparator == 11)
+            {
+                return Boolean.compare(this.isWant(), o.isWant());
+            }
+            if(comparator == 12)
+            {
+                 return Boolean.compare(this.isTrade(), o.isTrade());
+            }
+            if(comparator == 13)
+            {
+                return this.getMultiples() - o.getMultiples();
+            }
+        }
+        if(comparator < 0)
+        {
+            if(comparator == -1)
+            {
+                return o.getNatlDex() - this.getNatlDex();
+            }
+            if(comparator == -2)
+            {
+                
+            }
+            if(comparator == -3)
+            {
+                
+            }
+            if(comparator == -4)
+            {
+                if(this.getJohtoDex() == -1 && o.getJohtoDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getJohtoDex() == -1 && this.getJohtoDex() != -1)
+                {
+                    return -1;
+                }
+                return o.getJohtoDex() - this.getJohtoDex();
+            }
+            if(comparator == -5)
+            {
+                if(this.getHoennDex() == -1 && o.getHoennDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getHoennDex() == -1 && this.getHoennDex() != -1)
+                {
+                    return -1;
+                }
+                return o.getHoennDex() - this.getHoennDex();
+            }
+            if(comparator == -6)
+            {
+                if(this.getSinnohDex() == -1 && o.getSinnohDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getSinnohDex() == -1 && this.getSinnohDex() != -1)
+                {
+                    return -1;
+                }
+                return o.getSinnohDex() - this.getSinnohDex();
+            }
+            if(comparator == -7)
+            {
+                if(this.getUnovaDex() == -1 && o.getUnovaDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getUnovaDex() == -1 && this.getUnovaDex() != -1)
+                {
+                    return -1;
+                }
+                return o.getUnovaDex() - this.getUnovaDex();
+            }
+            if(comparator == -8)
+            {
+                if(this.getKalosDex() == -1 && o.getKalosDex() != -1)
+                {
+                    return 1;
+                }
+                if(o.getKalosDex() == -1 && this.getKalosDex() != -1)
+                {
+                    return -1;
+                }
+                return o.getKalosDex() - this.getKalosDex();
+            }
+            if(comparator == -9)
+            {
+                return Boolean.compare(o.isCaught(), this.isCaught());
+            }
+            if(comparator == -10)
+            {
+                return Boolean.compare(o.isSeen(), this.isSeen());
+            }
+            if(comparator == -11)
+            {
+                return Boolean.compare(o.isWant(), this.isWant());
+            }
+            if(comparator == -12)
+            {
+                return Boolean.compare(o.isTrade(), this.isTrade());
+            }
+            if(comparator == -13)
+            {
+               return o.getMultiples() - this.getMultiples();
+            }
+        }
+        
+        return 0;
     }
 }
