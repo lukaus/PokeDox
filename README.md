@@ -22,3 +22,7 @@ TODO for final version (1.0):
 
     -   Make pokemon's icon appear in the proper panel when selected
     -   Implement sorting/viewing by evolution family
+
+KNOWN BUGS:
+
+    -   Program will crash if any filters are applied if a column is sorted by DefaultTableRowSorter (So, I have disabled this for now)
