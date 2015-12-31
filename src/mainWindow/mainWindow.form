@@ -181,7 +181,7 @@
             <Property name="text" type="java.lang.String" value="Kanto"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kantoCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="johtoCheck">
@@ -190,7 +190,7 @@
             <Property name="text" type="java.lang.String" value="Johto"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="johtoCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="hoennCheck">
@@ -199,7 +199,7 @@
             <Property name="text" type="java.lang.String" value="Hoenn"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hoennCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="sinnohCheck">
@@ -208,7 +208,7 @@
             <Property name="text" type="java.lang.String" value="Sinnoh"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sinnohCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="unovaCheck">
@@ -217,7 +217,7 @@
             <Property name="text" type="java.lang.String" value="Unova"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="unovaCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="kalosCheck">
@@ -226,7 +226,7 @@
             <Property name="text" type="java.lang.String" value="Kalos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kalosCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="allRegionButton">
@@ -344,7 +344,7 @@
             <Property name="text" type="java.lang.String" value="Caught"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="caughtCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="wantCheck">
@@ -352,7 +352,7 @@
             <Property name="text" type="java.lang.String" value="Want"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wantCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="notHaveCheck">
@@ -360,7 +360,7 @@
             <Property name="text" type="java.lang.String" value="Don&apos;t Have"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wantCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="multiHaveCheck">
@@ -368,7 +368,7 @@
             <Property name="text" type="java.lang.String" value="Have Multiple"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wantCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="seenCheck">
@@ -376,7 +376,7 @@
             <Property name="text" type="java.lang.String" value="Seen"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wantCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="tradeCheck">
@@ -384,7 +384,7 @@
             <Property name="text" type="java.lang.String" value="Trade"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wantCheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="allCollectionButton">
@@ -568,7 +568,7 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="pokeList" type="code"/>
                 </Property>
-                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" preCode="if (pokeTable.getColumnModel().getColumnCount() &gt; 0) {&#xa;    pokeTable.getColumnModel().getColumn(0).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(0).setPreferredWidth(24);&#xa;    pokeTable.getColumnModel().getColumn(0).setMaxWidth(39);&#xa;    pokeTable.getColumnModel().getColumn(0).setHeaderValue(&quot;#&quot;);&#xa;    pokeTable.getColumnModel().getColumn(1).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(1).setPreferredWidth(100);&#xa;    pokeTable.getColumnModel().getColumn(1).setMaxWidth(115);&#xa;    pokeTable.getColumnModel().getColumn(1).setHeaderValue(&quot;Name&quot;);&#xa;    pokeTable.getColumnModel().getColumn(2).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(2).setPreferredWidth(50);&#xa;    pokeTable.getColumnModel().getColumn(2).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(2).setHeaderValue(&quot;Type&quot;);&#xa;    pokeTable.getColumnModel().getColumn(3).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(3).setPreferredWidth(47);&#xa;    pokeTable.getColumnModel().getColumn(3).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(3).setHeaderValue(&quot;Johto#&quot;);&#xa;    pokeTable.getColumnModel().getColumn(4).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(4).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(4).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(4).setHeaderValue(&quot;Hoenn#&quot;);&#xa;    pokeTable.getColumnModel().getColumn(5).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(5).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(5).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(5).setHeaderValue(&quot;Sinnoh#&quot;);&#xa;    pokeTable.getColumnModel().getColumn(6).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(6).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(6).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(6).setHeaderValue(&quot;Unova #&quot;);&#xa;    pokeTable.getColumnModel().getColumn(7).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(7).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(7).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(7).setHeaderValue(&quot;Kalos #&quot;);&#xa;    pokeTable.getColumnModel().getColumn(8).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(8).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(8).setMaxWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(8).setHeaderValue(&quot;Caught&quot;);&#xa;    pokeTable.getColumnModel().getColumn(9).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(9).setPreferredWidth(29);&#xa;    pokeTable.getColumnModel().getColumn(9).setMaxWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(9).setHeaderValue(&quot;Seen&quot;);&#xa;    pokeTable.getColumnModel().getColumn(10).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(10).setPreferredWidth(33);&#xa;    pokeTable.getColumnModel().getColumn(10).setMaxWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(10).setHeaderValue(&quot;Want&quot;);&#xa;    pokeTable.getColumnModel().getColumn(11).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(11).setPreferredWidth(29);&#xa;    pokeTable.getColumnModel().getColumn(11).setMaxWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(11).setHeaderValue(&quot;Trade&quot;);&#xa;    pokeTable.getColumnModel().getColumn(12).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(12).setPreferredWidth(16);&#xa;    pokeTable.getColumnModel().getColumn(12).setMaxWidth(60);&#xa;    pokeTable.getColumnModel().getColumn(12).setHeaderValue(&quot;Multiples&quot;);&#xa;    pokeTable.getColumnModel().getColumn(0).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(1).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(2).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(3).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(4).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(5).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(6).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(7).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(8).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(9).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(10).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(11).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(12).setResizable(true);&#xa;}" postCode="TableRowSorter&lt;TableModel&gt; sorter = new TableRowSorter&lt;TableModel&gt;(pokeTable.getModel());&#xa;pokeTable.setRowSorter(sorter);">
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" preCode="if (pokeTable.getColumnModel().getColumnCount() &gt; 0) {&#xa;    pokeTable.getColumnModel().getColumn(0).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(0).setPreferredWidth(24);&#xa;    pokeTable.getColumnModel().getColumn(0).setMaxWidth(39);&#xa;    pokeTable.getColumnModel().getColumn(0).setHeaderValue(&quot;#&quot;);&#xa;    pokeTable.getColumnModel().getColumn(1).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(1).setPreferredWidth(100);&#xa;    pokeTable.getColumnModel().getColumn(1).setMaxWidth(115);&#xa;    pokeTable.getColumnModel().getColumn(1).setHeaderValue(&quot;Name&quot;);&#xa;    pokeTable.getColumnModel().getColumn(2).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(2).setPreferredWidth(50);&#xa;    pokeTable.getColumnModel().getColumn(2).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(2).setHeaderValue(&quot;Type&quot;);&#xa;    pokeTable.getColumnModel().getColumn(3).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(3).setPreferredWidth(47);&#xa;    pokeTable.getColumnModel().getColumn(3).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(3).setHeaderValue(&quot;Johto#&quot;);&#xa;    pokeTable.getColumnModel().getColumn(4).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(4).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(4).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(4).setHeaderValue(&quot;Hoenn#&quot;);&#xa;    pokeTable.getColumnModel().getColumn(5).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(5).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(5).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(5).setHeaderValue(&quot;Sinnoh#&quot;);&#xa;    pokeTable.getColumnModel().getColumn(6).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(6).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(6).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(6).setHeaderValue(&quot;Unova #&quot;);&#xa;    pokeTable.getColumnModel().getColumn(7).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(7).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(7).setMaxWidth(65);&#xa;    pokeTable.getColumnModel().getColumn(7).setHeaderValue(&quot;Kalos #&quot;);&#xa;    pokeTable.getColumnModel().getColumn(8).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(8).setPreferredWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(8).setMaxWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(8).setHeaderValue(&quot;Caught&quot;);&#xa;    pokeTable.getColumnModel().getColumn(9).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(9).setPreferredWidth(29);&#xa;    pokeTable.getColumnModel().getColumn(9).setMaxWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(9).setHeaderValue(&quot;Seen&quot;);&#xa;    pokeTable.getColumnModel().getColumn(10).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(10).setPreferredWidth(33);&#xa;    pokeTable.getColumnModel().getColumn(10).setMaxWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(10).setHeaderValue(&quot;Want&quot;);&#xa;    pokeTable.getColumnModel().getColumn(11).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(11).setPreferredWidth(29);&#xa;    pokeTable.getColumnModel().getColumn(11).setMaxWidth(45);&#xa;    pokeTable.getColumnModel().getColumn(11).setHeaderValue(&quot;Trade&quot;);&#xa;    pokeTable.getColumnModel().getColumn(12).setMinWidth(0);&#xa;    pokeTable.getColumnModel().getColumn(12).setPreferredWidth(16);&#xa;    pokeTable.getColumnModel().getColumn(12).setMaxWidth(60);&#xa;    pokeTable.getColumnModel().getColumn(12).setHeaderValue(&quot;Multiples&quot;);&#xa;    pokeTable.getColumnModel().getColumn(0).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(1).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(2).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(3).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(4).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(5).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(6).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(7).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(8).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(9).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(10).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(11).setResizable(true);&#xa;    pokeTable.getColumnModel().getColumn(12).setResizable(true);&#xa;}" postCode="//TableRowSorter&lt;TableModel&gt; sorter = new TableRowSorter&lt;TableModel&gt;(pokeTable.getModel());&#xa;//pokeTable.setRowSorter(sorter);">
                   <TableColumnModel selectionModel="0"/>
                 </Property>
                 <Property name="opaque" type="boolean" value="false"/>
@@ -576,9 +576,13 @@
                   <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pokeTableMouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(pokeList)"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="pokeList = new PokeList();"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="JTableHeader header = pokeTable.getTableHeader();&#xa;/**&#xa; * A mouse listener class which is used to handle mouse clicking event&#xa; * on column headers of a JTable.&#xa; * @author http://www.codejava.net/java-se/swing/how-to-handle-mouse-clicking-event-on-jtable-column-header&#xa; * as well as http://stackoverflow.com/questions/4615741/jtable-clickable-column-header&#xa; * Hope that is is an acceptable citation&#xa; */&#xa;header.addMouseListener(new MouseAdapter(){&#xa;@Override&#xa;      public void mouseClicked(MouseEvent mouseEvent) {&#xa;        Point point = mouseEvent.getPoint();&#xa;        int index = pokeTable.columnAtPoint(point);&#xa;        if (index &gt;= 0) {&#xa; JOptionPane.showMessageDialog(pokeTable, &quot;Column header #&quot; + index + &quot; is clicked&quot;);&#xa;          pokeList.colSort(index);&#xa;        }&#xa;      };&#xa;});"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -749,7 +753,7 @@
             <Property name="text" type="java.lang.String" value="Normal"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="fireBox">
@@ -758,7 +762,7 @@
             <Property name="text" type="java.lang.String" value="Fire"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="groundBox">
@@ -766,18 +770,12 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Ground"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="psychicBox">
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Psychic"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="fightingBox">
           <Properties>
@@ -785,7 +783,7 @@
             <Property name="text" type="java.lang.String" value="Fighting"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="waterBox">
@@ -795,7 +793,7 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="rockBox">
@@ -804,7 +802,7 @@
             <Property name="text" type="java.lang.String" value="Rock"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="iceBox">
@@ -813,7 +811,7 @@
             <Property name="text" type="java.lang.String" value="Ice"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="flyingBox">
@@ -822,7 +820,7 @@
             <Property name="text" type="java.lang.String" value="Flying"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="grassBox">
@@ -831,7 +829,7 @@
             <Property name="text" type="java.lang.String" value="Grass"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="bugBox">
@@ -840,7 +838,7 @@
             <Property name="text" type="java.lang.String" value="Bug"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bugBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="dragonBox">
@@ -849,7 +847,7 @@
             <Property name="text" type="java.lang.String" value="Dragon"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="poisonBox">
@@ -858,7 +856,7 @@
             <Property name="text" type="java.lang.String" value="Poison"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="electricBox">
@@ -867,7 +865,7 @@
             <Property name="text" type="java.lang.String" value="Electric"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="ghostBox">
@@ -876,7 +874,7 @@
             <Property name="text" type="java.lang.String" value="Ghost"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="darkBox">
@@ -885,7 +883,7 @@
             <Property name="text" type="java.lang.String" value="Dark"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="steelBox">
@@ -894,7 +892,7 @@
             <Property name="text" type="java.lang.String" value="Steel"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="fairyBox">
@@ -903,7 +901,7 @@
             <Property name="text" type="java.lang.String" value="Fairy"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="allTypeButton">
@@ -928,7 +926,7 @@
             <Property name="toolTipText" type="java.lang.String" value="If checked, will exclude unselected types, even if second type is permitted"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="strictBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

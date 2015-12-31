@@ -23,7 +23,7 @@ class PokeList extends AbstractTableModel{
     
     private ArrayList<Pokemon> masterList;
     private ArrayList<Pokemon> data;
-    private final String[] colTitles = new String[]{"#", "Name", "Type", "Johto#", "Hoenn#", "Sinnoh#", "Unova #", "Kalos #", "Caught", "Seen", "Want", "Trade", "Multiples"};
+    private final String[] colTitles = new String[]{"#", "Nigga", "Type", "Johto#", "Hoenn#", "Sinnoh#", "Unova #", "Kalos #", "Caught", "Seen", "Want", "Trade", "Multiples"};
     String searchKey;
     
     PokeList()
@@ -176,5 +176,11 @@ class PokeList extends AbstractTableModel{
             //fireTableRowsDeleted(0, tableSize);
         }
         fireTableDataChanged();
+    }
+
+    void colSort(int index) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
     }
 }

@@ -5,12 +5,18 @@
  */
 package mainWindow;
 
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -139,7 +145,7 @@ public class mainWindow extends javax.swing.JFrame {
         kantoCheck.setText("Kanto");
         kantoCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kantoCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -147,7 +153,7 @@ public class mainWindow extends javax.swing.JFrame {
         johtoCheck.setText("Johto");
         johtoCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                johtoCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -155,7 +161,7 @@ public class mainWindow extends javax.swing.JFrame {
         hoennCheck.setText("Hoenn");
         hoennCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hoennCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -163,7 +169,7 @@ public class mainWindow extends javax.swing.JFrame {
         sinnohCheck.setText("Sinnoh");
         sinnohCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sinnohCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -171,7 +177,7 @@ public class mainWindow extends javax.swing.JFrame {
         unovaCheck.setText("Unova");
         unovaCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unovaCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -179,7 +185,7 @@ public class mainWindow extends javax.swing.JFrame {
         kalosCheck.setText("Kalos");
         kalosCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kalosCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -255,42 +261,42 @@ public class mainWindow extends javax.swing.JFrame {
         caughtCheck.setText("Caught");
         caughtCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caughtCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
         wantCheck.setText("Want");
         wantCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wantCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
         notHaveCheck.setText("Don't Have");
         notHaveCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wantCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
         multiHaveCheck.setText("Have Multiple");
         multiHaveCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wantCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
         seenCheck.setText("Seen");
         seenCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wantCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
         tradeCheck.setText("Trade");
         tradeCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wantCheckActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -431,6 +437,30 @@ public class mainWindow extends javax.swing.JFrame {
         pokeTable.setModel(pokeList);
         pokeTable.setOpaque(false);
         pokeTable.getTableHeader().setReorderingAllowed(false);
+        JTableHeader header = pokeTable.getTableHeader();
+        /**
+        * A mouse listener class which is used to handle mouse clicking event
+        * on column headers of a JTable.
+        * @author http://www.codejava.net/java-se/swing/how-to-handle-mouse-clicking-event-on-jtable-column-header
+        * as well as http://stackoverflow.com/questions/4615741/jtable-clickable-column-header
+        * Hope that is is an acceptable citation
+        */
+        header.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                Point point = mouseEvent.getPoint();
+                int index = pokeTable.columnAtPoint(point);
+                if (index >= 0) {
+                    JOptionPane.showMessageDialog(pokeTable, "Column header #" + index + " is clicked");
+                    pokeList.colSort(index);
+                }
+            };
+        });
+        pokeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokeTableMouseClicked(evt);
+            }
+        });
         tableScrollPane.setViewportView(pokeTable);
         if (pokeTable.getColumnModel().getColumnCount() > 0) {
             pokeTable.getColumnModel().getColumn(0).setMinWidth(0);
@@ -499,8 +529,8 @@ public class mainWindow extends javax.swing.JFrame {
             pokeTable.getColumnModel().getColumn(11).setResizable(true);
             pokeTable.getColumnModel().getColumn(12).setResizable(true);
         }
-        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(pokeTable.getModel());
-        pokeTable.setRowSorter(sorter);
+        //TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(pokeTable.getModel());
+        //pokeTable.setRowSorter(sorter);
 
         searchLabel.setText("Pokémon Search by name:");
 
@@ -558,7 +588,7 @@ public class mainWindow extends javax.swing.JFrame {
         normalBox.setText("Normal");
         normalBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -566,31 +596,21 @@ public class mainWindow extends javax.swing.JFrame {
         fireBox.setText("Fire");
         fireBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
         groundBox.setSelected(true);
         groundBox.setText("Ground");
-        groundBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
-            }
-        });
 
         psychicBox.setSelected(true);
         psychicBox.setText("Psychic");
-        psychicBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
-            }
-        });
 
         fightingBox.setSelected(true);
         fightingBox.setText("Fighting");
         fightingBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -599,7 +619,7 @@ public class mainWindow extends javax.swing.JFrame {
         waterBox.setToolTipText("");
         waterBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -607,7 +627,7 @@ public class mainWindow extends javax.swing.JFrame {
         rockBox.setText("Rock");
         rockBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -615,7 +635,7 @@ public class mainWindow extends javax.swing.JFrame {
         iceBox.setText("Ice");
         iceBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -623,7 +643,7 @@ public class mainWindow extends javax.swing.JFrame {
         flyingBox.setText("Flying");
         flyingBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -631,7 +651,7 @@ public class mainWindow extends javax.swing.JFrame {
         grassBox.setText("Grass");
         grassBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -639,7 +659,7 @@ public class mainWindow extends javax.swing.JFrame {
         bugBox.setText("Bug");
         bugBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bugBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -647,7 +667,7 @@ public class mainWindow extends javax.swing.JFrame {
         dragonBox.setText("Dragon");
         dragonBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -655,7 +675,7 @@ public class mainWindow extends javax.swing.JFrame {
         poisonBox.setText("Poison");
         poisonBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -663,7 +683,7 @@ public class mainWindow extends javax.swing.JFrame {
         electricBox.setText("Electric");
         electricBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -671,7 +691,7 @@ public class mainWindow extends javax.swing.JFrame {
         ghostBox.setText("Ghost");
         ghostBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -679,7 +699,7 @@ public class mainWindow extends javax.swing.JFrame {
         darkBox.setText("Dark");
         darkBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -687,7 +707,7 @@ public class mainWindow extends javax.swing.JFrame {
         steelBox.setText("Steel");
         steelBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -695,7 +715,7 @@ public class mainWindow extends javax.swing.JFrame {
         fairyBox.setText("Fairy");
         fairyBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                waterBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -717,7 +737,7 @@ public class mainWindow extends javax.swing.JFrame {
         strictBox.setToolTipText("If checked, will exclude unselected types, even if second type is permitted");
         strictBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                strictBoxActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -1005,29 +1025,6 @@ public class mainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void kantoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kantoCheckActionPerformed
-        // TODO add your handling code here:
-            pokeList.sort(getFilters());
-    }//GEN-LAST:event_kantoCheckActionPerformed
-
-    private void sinnohCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinnohCheckActionPerformed
-        // TODO add your handling code here:
-            pokeList.sort(getFilters());
-    
-    }//GEN-LAST:event_sinnohCheckActionPerformed
-
-    private void johtoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_johtoCheckActionPerformed
-        // TODO add your handling code here:
-            pokeList.sort(getFilters());
-    
-    }//GEN-LAST:event_johtoCheckActionPerformed
-
-    private void kalosCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kalosCheckActionPerformed
-        // TODO add your handling code here:
-            pokeList.sort(getFilters());
-    
-    }//GEN-LAST:event_kalosCheckActionPerformed
-
     private void allCollectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allCollectionButtonActionPerformed
         // TODO add your handling code here:
         wantCheck.setSelected(true);
@@ -1088,26 +1085,6 @@ public class mainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void unovaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unovaCheckActionPerformed
-        // TODO add your handling code here:
-         pokeList.sort(getFilters());
-    }//GEN-LAST:event_unovaCheckActionPerformed
-
-    private void hoennCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hoennCheckActionPerformed
-        // TODO add your handling code here:
-         pokeList.sort(getFilters());
-    }//GEN-LAST:event_hoennCheckActionPerformed
-
-    private void caughtCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caughtCheckActionPerformed
-        // TODO add your handling code here:
-         pokeList.sort(getFilters());
-    }//GEN-LAST:event_caughtCheckActionPerformed
-
-    private void wantCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wantCheckActionPerformed
-        // TODO add your handling code here:
-         pokeList.sort(getFilters());
-    }//GEN-LAST:event_wantCheckActionPerformed
-
     private void markCaughtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markCaughtButtonActionPerformed
         // TODO add your handling code here:
         pokeList.deleteCharmander();
@@ -1128,11 +1105,6 @@ public class mainWindow extends javax.swing.JFrame {
         seenCheck.setSelected(false);
         pokeList.sort(getFilters());
     }//GEN-LAST:event_defaultCollectionButton
-
-    private void strictBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strictBoxActionPerformed
-        // TODO add your handling code here:
-        pokeList.sort(getFilters());
-    }//GEN-LAST:event_strictBoxActionPerformed
 
     private void noTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noTypeButtonActionPerformed
         normalBox.setSelected(false);
@@ -1178,17 +1150,6 @@ public class mainWindow extends javax.swing.JFrame {
         pokeList.sort(getFilters());
     }//GEN-LAST:event_allTypeButtonActionPerformed
 
-    private void waterBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterBoxActionPerformed
-        // TODO add your handling code here:
-        pokeList.sort(getFilters());
-    }//GEN-LAST:event_waterBoxActionPerformed
-
-    private void bugBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bugBoxActionPerformed
-        // TODO add your handling code here:
-        pokeList.sort(getFilters());
-
-    }//GEN-LAST:event_bugBoxActionPerformed
-
 
     private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
         // TODO add your handling code here:
@@ -1196,6 +1157,18 @@ public class mainWindow extends javax.swing.JFrame {
         pokeList.setSearchKey(searchKey);
         pokeList.sort(getFilters());
     }//GEN-LAST:event_searchFieldKeyReleased
+
+    private void pokeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokeTableMouseClicked
+        // TODO add your handling code here:
+        
+        
+        
+        
+    }//GEN-LAST:event_pokeTableMouseClicked
+
+    private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
+           pokeList.sort(getFilters());
+    }//GEN-LAST:event_checkBoxActionPerformed
     
     boolean[] getFilters()
     {
@@ -1249,8 +1222,6 @@ public class mainWindow extends javax.swing.JFrame {
         //</editor-fold>
 */
      
-       // Vector<Vector<Pokemon>> pokemonList = new Vector<Vector<Pokemon>>();
-        
 
     }
 
