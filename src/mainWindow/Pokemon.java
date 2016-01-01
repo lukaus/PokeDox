@@ -124,14 +124,19 @@ public final class Pokemon implements Comparable<Pokemon>{
         {
             this.comparator = 0;
         }
-        if (this.comparator > 0)
+        if (this.comparator > 0 && this.comparator == c)
         {
             this.comparator = (c * -1);
+        }
+        if (this.comparator > 0 && this.comparator != c)
+        {
+            this.comparator = c;
         }
         if (this.comparator == 0)
         {
             this.comparator = c;
         }
+        
     }
     boolean includeQuery(boolean[] filters) // checks pokemon against filters and returns to PokeList if it should be included or not (false = do not include)
     {   
@@ -569,11 +574,11 @@ public final class Pokemon implements Comparable<Pokemon>{
         {
             if(comparator == 2)
             {
-                
+                return this.getName().toLowerCase().compareTo(o.getName().toLowerCase());
             }
             if(comparator == 3)
             {
-                
+                return this.getType().toLowerCase().compareTo(o.getType().toLowerCase());
             }
             if(comparator == 4)
             {
@@ -665,11 +670,11 @@ public final class Pokemon implements Comparable<Pokemon>{
             }
             if(comparator == -2)
             {
-                
+                return o.getName().toLowerCase().compareTo(this.getName().toLowerCase());
             }
             if(comparator == -3)
             {
-                
+                return o.getType().toLowerCase().compareTo(this.getType().toLowerCase());
             }
             if(comparator == -4)
             {
