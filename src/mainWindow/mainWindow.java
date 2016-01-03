@@ -1087,12 +1087,12 @@ public class mainWindow extends javax.swing.JFrame {
 
     private void markCaughtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markCaughtButtonActionPerformed
         // TODO add your handling code here:
-        pokeList.deleteCharmander();
+     
     }//GEN-LAST:event_markCaughtButtonActionPerformed
 
     private void markWantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markWantButtonActionPerformed
         // TODO add your handling code here:
-        pokeList.addPikachu();
+      
     }//GEN-LAST:event_markWantButtonActionPerformed
 
     private void defaultCollectionButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultCollectionButton

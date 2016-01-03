@@ -140,19 +140,7 @@ class PokeList extends AbstractTableModel{
         } else {
             return true;
         }
-    }
-
-    void deleteCharmander() {
-        
-        data.remove(0);
-        fireTableRowsDeleted(0,0);
-    }
-
-    void addPikachu() {
-        data.add(new Pokemon(1, 2, 3, 4, 5, 6, "Pikashoo", 1, 2, true, true, true, true, 1, 1));
-        fireTableRowsInserted(data.size()-1,data.size()-1);
-    }
-
+       }
    
 
     void setSearchKey(String s) {
