@@ -132,6 +132,7 @@ class PokeList extends AbstractTableModel{
         return getValueAt(0, c).getClass();
     }
      
+    @Override
        public boolean isCellEditable(int row, int col) {
         //Note that the data/cell address is constant,
         //no matter where the cell appears onscreen.
@@ -175,5 +176,33 @@ class PokeList extends AbstractTableModel{
         }
         Collections.sort(data);
         fireTableDataChanged();
+    }
+
+    void flipValue(int row, int column) {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(column == 8)
+        {
+            data.get(row).setCaught(!data.get(row).isCaught());
+            masterList.get(data.get(row).getNatlDex()-1).setCaught(data.get(row).isCaught());
+            fireTableDataChanged();
+        }
+        if(column == 9)
+        {
+            data.get(row).setSeen(!data.get(row).isSeen());
+            masterList.get(data.get(row).getNatlDex()-1).setSeen(data.get(row).isSeen());
+            fireTableDataChanged();
+        }
+        if(column == 10)
+        {
+            data.get(row).setWant(!data.get(row).isWant());
+            masterList.get(data.get(row).getNatlDex()-1).setWant(data.get(row).isWant());
+            fireTableDataChanged();
+        }
+        if(column == 11)
+        {
+            data.get(row).setTrade(!data.get(row).isTrade());
+            masterList.get(data.get(row).getNatlDex()-1).setTrade(data.get(row).isTrade());
+            fireTableDataChanged();
+        }
     }
 }

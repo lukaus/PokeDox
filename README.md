@@ -14,7 +14,7 @@ VERSION 0.8 INCLUDES:
 
 'Blockers' for 0.9:
 
-    -   Implement the rest of the GUI, including editing of (editable) cells, not including Pokemon name search
+    -   Implement the rest of the GUI, including editing of (editable) cells
     -   Implement persistence of data, either through serialization, or, more likely, writing and reading from pokemon.dat (eventually perhaps allow user-defined 'saves')
 
 

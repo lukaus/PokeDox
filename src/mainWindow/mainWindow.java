@@ -461,6 +461,11 @@ public class mainWindow extends javax.swing.JFrame {
                 pokeTableMouseClicked(evt);
             }
         });
+        pokeTable.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                pokeTablePropertyChange(evt);
+            }
+        });
         tableScrollPane.setViewportView(pokeTable);
         if (pokeTable.getColumnModel().getColumnCount() > 0) {
             pokeTable.getColumnModel().getColumn(0).setMinWidth(0);
@@ -1039,8 +1044,8 @@ public class mainWindow extends javax.swing.JFrame {
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         // TODO add your handling code here:
-        if(this.getWidth() > 803)
-            this.setSize(803, this.getHeight());
+      //  if(this.getWidth() > 803)
+      //      this.setSize(803, this.getHeight());
     }//GEN-LAST:event_formComponentResized
 
     private void allRegionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRegionButtonActionPerformed
@@ -1159,16 +1164,40 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_searchFieldKeyReleased
 
     private void pokeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokeTableMouseClicked
-        // TODO add your handling code here:
-        
-        
-        
+        // TOSO add your handling code here:
+        Point point = evt.getPoint();
+        int column = pokeTable.columnAtPoint(point);
+        int row =    pokeTable.rowAtPoint(point);
+        if(pokeList.isCellEditable(row, column))
+        {
+            if(column == 8)
+            {
+               pokeList.flipValue(row, column);
+            }
+            if(column ==9)
+            {
+                pokeList.flipValue(row, column);
+            }
+            if(column == 10)
+            {
+                pokeList.flipValue(row, column);
+            }
+            if(column == 11)
+            {
+                pokeList.flipValue(row, column);
+            }
+        }
         
     }//GEN-LAST:event_pokeTableMouseClicked
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
            pokeList.sort(getFilters());
     }//GEN-LAST:event_checkBoxActionPerformed
+
+    private void pokeTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pokeTablePropertyChange
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_pokeTablePropertyChange
     
     boolean[] getFilters()
     {

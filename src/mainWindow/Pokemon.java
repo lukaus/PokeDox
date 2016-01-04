@@ -306,7 +306,7 @@ public final class Pokemon implements Comparable<Pokemon>{
     {
         return dataSet.get(index);
     }
-    
+ 
     /**
      * @return the natlDex
      */
