@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import javax.swing.UIManager;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
@@ -388,6 +389,11 @@ public class mainWindow extends javax.swing.JFrame {
         creditsLabel.setText("copyright 2015 by Luke Stanley");
 
         iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainWindow/Pokeball_icon.png"))); // NOI18N
+        iconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout iconPanelLayout = new javax.swing.GroupLayout(iconPanel);
         iconPanel.setLayout(iconPanelLayout);
@@ -1198,6 +1204,11 @@ public class mainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_pokeTablePropertyChange
+
+    private void iconLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLabelMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(selectionPanel, "Don't click OK", "Error:", ERROR_MESSAGE);
+    }//GEN-LAST:event_iconLabelMouseClicked
     
     boolean[] getFilters()
     {

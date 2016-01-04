@@ -497,6 +497,9 @@
                   <Image iconType="3" name="/mainWindow/Pokeball_icon.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconLabelMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
