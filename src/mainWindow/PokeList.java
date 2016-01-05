@@ -5,8 +5,12 @@
  */
 package mainWindow;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +25,7 @@ final class PokeList extends AbstractTableModel{
     
     private ArrayList<Pokemon> masterList;
     private ArrayList<Pokemon> data;
-    private final String[] colTitles = new String[]{"#", "Nigga", "Type", "Johto#", "Hoenn#", "Sinnoh#", "Unova #", "Kalos #", "Caught", "Seen", "Want", "Trade", "Multiples"};
+    private final String[] colTitles = new String[]{"#", "Name", "Type", "Johto#", "Hoenn#", "Sinnoh#", "Unova #", "Kalos #", "Caught", "Seen", "Want", "Trade", "Multiples"};
     String searchKey;
     
     PokeList()
@@ -51,7 +55,7 @@ final class PokeList extends AbstractTableModel{
         {
             masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
             fireTableDataChanged();
-            //fireTableRowsDeleted(0, tableSize);
+            
         }
         else
         {
@@ -77,7 +81,7 @@ final class PokeList extends AbstractTableModel{
     void readData()
     {
         masterList = new ArrayList<Pokemon>();
-      //  String[] tokens = {"", ""};
+      
         try{
             FileInputStream fstream = new FileInputStream("./src/mainWindow/pokemon.dat");
             DataInputStream in = new DataInputStream(fstream);
@@ -97,7 +101,7 @@ final class PokeList extends AbstractTableModel{
                         tokens[6],Integer.parseInt(tokens[7]),Integer.parseInt(tokens[8]),
                         Boolean.parseBoolean(tokens[9]),Boolean.parseBoolean(tokens[10]),Boolean.parseBoolean(tokens[11]),Boolean.parseBoolean(tokens[12]),
                         Integer.parseInt(tokens[13]),Integer.parseInt(tokens[14])));
-                   //   masterList.add(new Pokemon(1, 2, 3, 4, 5, 6, "Pikashoo", 1, 2, true, true, true, true, 1, 1));
+                   
             }
             in.close();
          
@@ -107,6 +111,32 @@ final class PokeList extends AbstractTableModel{
      //       System.err.println("At: " + tokens[0]);
         }     
    }
+    void saveData()
+    {
+        try {
+			File file = new File("./src/mainWindow/pokemon.dat");
+
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+                        for(int i = 0; i < masterList.size(); i++)
+                        {
+                            bw.write(masterList.get(i).getSaveData());
+                        }
+                        
+                        bw.close();
+			System.out.println("Done saving");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
 
     @Override
     public int getRowCount() {

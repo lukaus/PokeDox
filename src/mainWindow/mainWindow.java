@@ -92,6 +92,7 @@ public class mainWindow extends javax.swing.JFrame {
         searchField = new javax.swing.JTextField();
         allPokemonButton = new javax.swing.JRadioButton();
         evoFamButton = new javax.swing.JRadioButton();
+        saveButton = new javax.swing.JButton();
         typeFiltersPanel = new javax.swing.JPanel();
         typeFiltersLabel = new javax.swing.JLabel();
         normalBox = new javax.swing.JCheckBox();
@@ -134,13 +135,18 @@ public class mainWindow extends javax.swing.JFrame {
         pokePicLabel = new javax.swing.JLabel();
         selectedPokemonLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PokéDox v 0.8");
         setBackground(new java.awt.Color(255, 255, 255));
         setName("mainFrame"); // NOI18N
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 formComponentResized(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -574,12 +580,19 @@ public class mainWindow extends javax.swing.JFrame {
         allOrEvoFamRadioSelectionGroup.add(evoFamButton);
         evoFamButton.setText("By Evolution Family");
 
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout tablePanelLayout = new javax.swing.GroupLayout(tablePanel);
         tablePanel.setLayout(tablePanelLayout);
         tablePanelLayout.setHorizontalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
-                .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(tablePanelLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -591,19 +604,24 @@ public class mainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(allPokemonButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(evoFamButton)))
+                        .addComponent(evoFamButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchLabel)
-                    .addComponent(allPokemonButton)
-                    .addComponent(evoFamButton))
+                    .addComponent(saveButton)
+                    .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchLabel)
+                        .addComponent(allPokemonButton)
+                        .addComponent(evoFamButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
         );
 
         typeFiltersPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1178,12 +1196,28 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_allTypeButtonActionPerformed
 
 
+    private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
+           pokeList.sort(getFilters());
+    }//GEN-LAST:event_checkBoxActionPerformed
+
+    private void iconLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLabelMouseClicked
+        // TODO add your handling code here:
+     //   JOptionPane.showMessageDialog(selectionPanel, "Don't click OK", "Error:", ERROR_MESSAGE);
+        if(this.getWidth() > 813)
+            this.setSize(813, this.getHeight());
+    }//GEN-LAST:event_iconLabelMouseClicked
+
     private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
         // TODO add your handling code here:
         String searchKey = searchField.getText();
         pokeList.setSearchKey(searchKey);
         pokeList.sort(getFilters());
     }//GEN-LAST:event_searchFieldKeyReleased
+
+    private void pokeTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pokeTablePropertyChange
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_pokeTablePropertyChange
 
     private void pokeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokeTableMouseClicked
         // TOSO add your handling code here:
@@ -1194,41 +1228,47 @@ public class mainWindow extends javax.swing.JFrame {
         {
             if(column == 8)
             {
-           //    pokeList.flipValue(row, column);
+                //    pokeList.flipValue(row, column);
             }
             if(column ==9)
             {
-             //   pokeList.flipValue(row, column);
+                //   pokeList.flipValue(row, column);
             }
             if(column == 10)
             {
-           //     pokeList.flipValue(row, column);
+                //     pokeList.flipValue(row, column);
             }
             if(column == 11)
             {
-            //    pokeList.flipValue(row, column);
+                //    pokeList.flipValue(row, column);
             }
             if(column == 12)
             {
-            //    pokeList.changeCellAt(row, column,((EventObject) evt));
+                //    pokeList.changeCellAt(row, column,((EventObject) evt));
             }
         }
-        
+
     }//GEN-LAST:event_pokeTableMouseClicked
 
-    private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-           pokeList.sort(getFilters());
-    }//GEN-LAST:event_checkBoxActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:.
+        pokeList.saveData();
+    }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void pokeTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pokeTablePropertyChange
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(titlePanel, "Do you want to save your changes?", "Exiting program.", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         
-    }//GEN-LAST:event_pokeTablePropertyChange
-
-    private void iconLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLabelMouseClicked
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(selectionPanel, "Don't click OK", "Error:", ERROR_MESSAGE);
-    }//GEN-LAST:event_iconLabelMouseClicked
+        if(result == JOptionPane.YES_OPTION)
+        {
+            pokeList.saveData();
+            System.exit(0);
+        }
+        if(result == JOptionPane.NO_OPTION)
+        {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
     
     boolean[] getFilters()
     {
@@ -1341,6 +1381,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel regionFilterPanel;
     private javax.swing.JLabel regionLabel;
     private javax.swing.JCheckBox rockBox;
+    private javax.swing.JButton saveButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JLabel searchLabel;
     private javax.swing.JCheckBox seenCheck;
@@ -1364,22 +1405,5 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox wantCheck;
     private javax.swing.JCheckBox waterBox;
     // End of variables declaration//GEN-END:variables
-    /*
-    class CustomCellEditor extends AbstractCellEditor implements TableCellEditor {
-        JComponent component = new JTextField();
-
-         public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected,
-             int rowIndex, int vColIndex) {
-             
-             String valueStr = String.valueOf(value);
-           ((JTextField) component).setText((String) valueStr);
-
-           return component;
-         }
-
-         public Object getCellEditorValue() {
-           return ((JTextField) component).getText();
-         }
-    }
-//    */
+ 
 }

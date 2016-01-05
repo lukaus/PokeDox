@@ -6,7 +6,10 @@
 package mainWindow;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -99,7 +102,8 @@ public final class Pokemon implements Comparable<Pokemon>{
         setEvoFamily(ef);
         
         // Calculate BufferedImage
-      /*  try{
+      /*  
+        try{
         masterImg = ImageIO.read(new File("./src/mainWindow/pokemon_icondex.png"));
         } catch (IOException e) {
         }
@@ -107,7 +111,8 @@ public final class Pokemon implements Comparable<Pokemon>{
         int imgY = ( (getNatlDex()-1) % 27) * 33;
         
         img = masterImg.getSubimage(imgX, imgY, 33 ,33);
-  */  }
+//  */  
+          }
     public int getComparator() {
         return comparator;
     }
@@ -297,6 +302,51 @@ public final class Pokemon implements Comparable<Pokemon>{
     ArrayList<Object> getData()
     {
         return dataSet;
+    }
+    String getSaveData()
+    {
+        String data = getNatlDex() + " " + getJohtoDex() + " " + getHoennDex() + " " + getSinnohDex() +
+                " " + getUnovaDex() + " " + getKalosDex() + " " + getName() + " " + getType1() + " " + getType2() + " ";
+        
+          
+        if(isCaught())
+        {
+            data += "1 ";
+        }
+        else
+        {
+            data += "0 ";
+        }
+        
+        if(isSeen())
+        {
+            data += "1 ";
+        }
+        else
+        {
+            data += "0 ";
+        }
+        
+        if(isWant())
+        {
+            data += "1 ";
+        }
+        else
+        {
+            data += "0 ";
+        }
+        
+        if(isTrade())
+        {
+            data += "1 ";
+        }
+        else
+        {
+            data += "0 ";
+        }
+                        
+        data += getMultiples() + " " + getEvoFamily() + "\n";
+        return data;
     }
     
     Object get(int index)

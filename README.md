@@ -11,11 +11,11 @@ VERSION 0.8 INCLUDES:
     -   Completed Pokemon list with dex numbers/types
     -   Filter for region, types and collection
     -   Search by Pokemon name function
+    -   Saveable changes to data
 
 'Blockers' for 0.9:
 
-    -   Implement the rest of the GUI, including editing of (editable) cells
-    -   Implement persistence of data, either through serialization, or, more likely, writing and reading from pokemon.dat (eventually perhaps allow user-defined 'saves')
+    -   Implement the rest of the GUI: "Mark Selected As..." buttons
 
 
 TODO for final version (1.0):
