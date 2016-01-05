@@ -4,24 +4,20 @@
  * and open the template in the editor.
  */
 package mainWindow;
-
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;  
 import javax.swing.table.AbstractTableModel;
+
 
 /**
  *
  * @author Lukaus
  */
-class PokeList extends AbstractTableModel{
+final class PokeList extends AbstractTableModel{
     
     private ArrayList<Pokemon> masterList;
     private ArrayList<Pokemon> data;
@@ -32,6 +28,7 @@ class PokeList extends AbstractTableModel{
     {
         getPokemon();
     } 
+   
     
     
     void sort(boolean[] filters)
@@ -142,8 +139,48 @@ class PokeList extends AbstractTableModel{
             return true;
         }
        }
-   
-
+       public void setValueAt(Object value, int row, int col) 
+       {
+           if(col < 12)
+           {
+               if(col == 8)
+                {
+                    data.get(row).setCaught((Boolean) value);
+                    masterList.get(data.get(row).getNatlDex()-1).setCaught(data.get(row).isCaught());
+                 //   fireTableDataChanged();
+                }
+                if(col == 9)
+                {
+                    data.get(row).setSeen((Boolean) value);
+                    masterList.get(data.get(row).getNatlDex()-1).setSeen(data.get(row).isSeen());
+                //    fireTableDataChanged();
+                }
+                if(col == 10)
+                {
+                    data.get(row).setWant((Boolean) value);
+                    masterList.get(data.get(row).getNatlDex()-1).setWant(data.get(row).isWant());
+                 //   fireTableDataChanged();
+                }
+                if(col == 11)
+                {
+                    data.get(row).setTrade((Boolean) value);
+                    masterList.get(data.get(row).getNatlDex()-1).setTrade(data.get(row).isTrade());
+                    //fireTableDataChanged();
+                }
+        //       data.get(row,col).set = value;
+           }
+           else
+           {
+               if(col == 12)
+                {
+                    data.get(row).setMultiples((Integer) value);
+                    masterList.get(data.get(row).getNatlDex()-1).setMultiples(data.get(row).getMultiples());
+                }
+               
+           }
+        fireTableCellUpdated(row, col);
+    }
+     
     void setSearchKey(String s) {
         
         searchKey = s;

@@ -5,20 +5,26 @@
  */
 package mainWindow;
 
+import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Vector;
+import java.util.EventObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractCellEditor;
+import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.event.CellEditorListener;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableRowSorter;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -80,7 +86,8 @@ public class mainWindow extends javax.swing.JFrame {
         tablePanel = new javax.swing.JPanel();
         tableScrollPane = new javax.swing.JScrollPane();
         pokeList = new PokeList();
-        pokeTable = new javax.swing.JTable(pokeList);
+        pokeTable = new javax.swing.JTable(pokeList)
+        ;
         searchLabel = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         allPokemonButton = new javax.swing.JRadioButton();
@@ -440,8 +447,17 @@ public class mainWindow extends javax.swing.JFrame {
 
         tableScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        //TableColumn col = pokeTable.getColumnModel().getColumn(12);
+        //  col.setCellEditor(new CustomCellEditor());
         pokeTable.setModel(pokeList);
+        //DefaultCellEditor singleClickMultiples = new DefaultCellEditor(new JTextField());
+        //singleClickMultiples.setClickCountToStart(1);
+        /*
+        */
+        //pokeTable.setDefaultEditor(pokeTable.getColumnClass(12), singleClickMultiples);
         pokeTable.setOpaque(false);
+        DefaultCellEditor multipleEditor = (DefaultCellEditor) pokeTable.getDefaultEditor(pokeTable.getColumnClass(12));
+        multipleEditor.setClickCountToStart(1);
         pokeTable.getTableHeader().setReorderingAllowed(false);
         JTableHeader header = pokeTable.getTableHeader();
         /**
@@ -1178,19 +1194,23 @@ public class mainWindow extends javax.swing.JFrame {
         {
             if(column == 8)
             {
-               pokeList.flipValue(row, column);
+           //    pokeList.flipValue(row, column);
             }
             if(column ==9)
             {
-                pokeList.flipValue(row, column);
+             //   pokeList.flipValue(row, column);
             }
             if(column == 10)
             {
-                pokeList.flipValue(row, column);
+           //     pokeList.flipValue(row, column);
             }
             if(column == 11)
             {
-                pokeList.flipValue(row, column);
+            //    pokeList.flipValue(row, column);
+            }
+            if(column == 12)
+            {
+            //    pokeList.changeCellAt(row, column,((EventObject) evt));
             }
         }
         
@@ -1344,4 +1364,22 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox wantCheck;
     private javax.swing.JCheckBox waterBox;
     // End of variables declaration//GEN-END:variables
+    /*
+    class CustomCellEditor extends AbstractCellEditor implements TableCellEditor {
+        JComponent component = new JTextField();
+
+         public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected,
+             int rowIndex, int vColIndex) {
+             
+             String valueStr = String.valueOf(value);
+           ((JTextField) component).setText((String) valueStr);
+
+           return component;
+         }
+
+         public Object getCellEditorValue() {
+           return ((JTextField) component).getText();
+         }
+    }
+//    */
 }
