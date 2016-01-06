@@ -51,8 +51,14 @@ final class PokeList extends AbstractTableModel{
             
         }
         
-      //  if(searchKey != null)
-        //    pokeCount -= searchPokemon();
+        if(searchKey != null)
+            pokeCount -= searchPokemon();
+        
+        for(int j = 0; j < data.size(); j++)
+        {
+            if(data.get(j).getName().contains(" family"))
+                data.get(j).setName(data.get(j).getName().subSequence(0, data.get(j).getName().length() - 7).toString());
+        }
         
         if(!data.isEmpty() && filters[33] == true)
             pokeCount -= evoQuell();
@@ -226,6 +232,7 @@ final class PokeList extends AbstractTableModel{
                 i--;
                 pokesRemoved++;
             }
+            
         }
         if(data.isEmpty())
         {
@@ -334,7 +341,8 @@ final class PokeList extends AbstractTableModel{
                // System.out.println(data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being kept.");
                 currentDexNum = data.get(j).getNatlDex();
                 pokeFamilies[data.get(j).getEvoFamily()] = true;
-                data.get(j).setName(data.get(j).getName() + " family");
+                if(!data.get(j).getName().contains(" family"))
+                    data.get(j).setName(data.get(j).getName() + " family");
             }
         }
         
