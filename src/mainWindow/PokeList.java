@@ -51,23 +51,14 @@ final class PokeList extends AbstractTableModel{
             
         }
         
-        if(searchKey != null)
-            pokeCount -= searchPokemon();
+      //  if(searchKey != null)
+        //    pokeCount -= searchPokemon();
         
         if(!data.isEmpty() && filters[33] == true)
-            evoQuell();
+            pokeCount -= evoQuell();
         
+        fireTableDataChanged();
         
-        if(data.isEmpty())
-        {
-         //   masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
-            fireTableDataChanged();
-            
-        }
-        else
-        {
-                fireTableDataChanged();
-        }
         return pokeCount;
     }
     
@@ -319,23 +310,28 @@ final class PokeList extends AbstractTableModel{
 
     private int evoQuell() 
     {
+        System.out.println("In evoQuell()");
         int quelledPokes = 0;
         int currentDexNum = 1;
         boolean[] pokeFamilies = new boolean[363];
         for(int i = 0; i < 363; i++)
             pokeFamilies[i] = false;
-        for(int j = 0; j < data.size()-1; j++)
+        
+        for(int j = 0; j < data.size(); j++)
         {
             if( pokeFamilies[data.get(j).getEvoFamily()] == true )
             {
                 if(data.get(j).isCaught())
-                    data.get(currentDexNum+1).setCaught(true);
+                    data.get(currentDexNum).setCaught(true);
                 data.remove(j);
                 quelledPokes++;
+                System.out.println("----------- " + data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being quelled!");
             }
             else
             {
+                System.out.println(data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being kept.");
                 currentDexNum = data.get(j).getNatlDex();
+                pokeFamilies[data.get(j).getEvoFamily()] = true;
             }
         }
         

@@ -1015,9 +1015,19 @@ public class mainWindow extends javax.swing.JFrame {
         allOrEvoFamRadioSelectionGroup.add(allPokemonButton);
         allPokemonButton.setSelected(true);
         allPokemonButton.setText("All Pokemon");
+        allPokemonButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allPokemonButtonActionPerformed(evt);
+            }
+        });
 
         allOrEvoFamRadioSelectionGroup.add(evoFamButton);
         evoFamButton.setText("By Evolution Family");
+        evoFamButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                evoFamButtonActionPerformed(evt);
+            }
+        });
 
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1383,6 +1393,14 @@ public class mainWindow extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_pokeTableMouseClicked
+
+    private void evoFamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evoFamButtonActionPerformed
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
+    }//GEN-LAST:event_evoFamButtonActionPerformed
+
+    private void allPokemonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allPokemonButtonActionPerformed
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
+    }//GEN-LAST:event_allPokemonButtonActionPerformed
     
     boolean[] getFilters()
     {

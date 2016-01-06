@@ -57,8 +57,9 @@ public final class Pokemon implements Comparable<Pokemon>{
         want = true; 
         seen = true; 
         trade = true; 
-        evoFamily = 1; 
+        evoFamily = -999; 
         multiples = 1;
+        System.out.println("This should NEVER be called");
         //shouldn't be called
     }
     
@@ -585,6 +586,7 @@ public final class Pokemon implements Comparable<Pokemon>{
      * @param evoFamily the evoFamily to set
      */
     public void setEvoFamily(int evoFamily) {
+     //   System.out.println("Why is this being called?");
         this.evoFamily = evoFamily;
         dataSet.set(13, evoFamily);
     }
