@@ -156,7 +156,7 @@ public final class Pokemon implements Comparable<Pokemon>{
         "STL", "FIR", "WTR", "GRS",
         "ELC", "PSY", "ICE", "DRG",
         "DRK", "FRY"
-        strictMatch, singleOnly, dualOnly
+        strictMatch, singleOnly, dualOnly, evoFamilyOnly
         /*
         ...  check against filters
         */

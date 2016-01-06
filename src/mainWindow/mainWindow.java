@@ -1397,7 +1397,7 @@ public class mainWindow extends javax.swing.JFrame {
                           groundBox.isSelected(), rockBox.isSelected(), bugBox.isSelected(), ghostBox.isSelected(),
                           steelBox.isSelected(), fireBox.isSelected(),waterBox.isSelected(), grassBox.isSelected(),
                           electricBox.isSelected(), psychicBox.isSelected(), iceBox.isSelected(), dragonBox.isSelected(),      
-                          darkBox.isSelected(), fairyBox.isSelected(), strictBox.isSelected(), singleOnlyBox.isSelected(), dualOnlyBox.isSelected() };
+                          darkBox.isSelected(), fairyBox.isSelected(), strictBox.isSelected(), singleOnlyBox.isSelected(), dualOnlyBox.isSelected(), evoFamButton.isSelected() };
         return vals;
     }
     

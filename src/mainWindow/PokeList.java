@@ -36,6 +36,7 @@ final class PokeList extends AbstractTableModel{
 
     int sort(boolean[] filters)
     {
+        
         int pokeCount = 0;
         int tableSize = data.size();
         data.clear();
@@ -51,11 +52,15 @@ final class PokeList extends AbstractTableModel{
         }
         
         if(searchKey != null)
-        pokeCount -= searchPokemon();
+            pokeCount -= searchPokemon();
+        
+        if(!data.isEmpty() && filters[33] == true)
+            evoQuell();
+        
         
         if(data.isEmpty())
         {
-            masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
+         //   masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
             fireTableDataChanged();
             
         }
@@ -233,7 +238,7 @@ final class PokeList extends AbstractTableModel{
         }
         if(data.isEmpty())
         {
-            masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
+        //    masterList.add(new Pokemon(0, 0, 0, 0, 0, 0, "Empty Table!", 0, 0, false, false, false, false, 1337, 1));
             fireTableDataChanged();
             //fireTableRowsDeleted(0, tableSize);
         }
@@ -310,5 +315,30 @@ final class PokeList extends AbstractTableModel{
        data.get(i).setMultiples(Integer.parseInt(text));
        masterList.get(i).setMultiples(Integer.parseInt(text));
        fireTableDataChanged();
+    }
+
+    private int evoQuell() 
+    {
+        int quelledPokes = 0;
+        int currentDexNum = 1;
+        boolean[] pokeFamilies = new boolean[363];
+        for(int i = 0; i < 363; i++)
+            pokeFamilies[i] = false;
+        for(int j = 0; j < data.size()-1; j++)
+        {
+            if( pokeFamilies[data.get(j).getEvoFamily()] == true )
+            {
+                if(data.get(j).isCaught())
+                    data.get(currentDexNum+1).setCaught(true);
+                data.remove(j);
+                quelledPokes++;
+            }
+            else
+            {
+                currentDexNum = data.get(j).getNatlDex();
+            }
+        }
+        
+        return quelledPokes;        
     }
 }
