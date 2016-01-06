@@ -5,18 +5,16 @@ By Luke Stanley
 
 Version numbering is more of just milestones, can't even remember most of them, but here ya go:
 
-VERSION 0.8 INCLUDES:
+VERSION 0.9 INCLUDES:
 
     -   Finished (visually) GUI
     -   Completed Pokemon list with dex numbers/types
     -   Filter for region, types and collection
     -   Search by Pokemon name function
     -   Saveable changes to data
-
-'Blockers' for 0.9:
-
     -   Implement the rest of the GUI: "Mark Selected As..." buttons
 
+# This program is now useable!!
 
 TODO for final version (1.0):
 

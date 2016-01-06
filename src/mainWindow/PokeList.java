@@ -34,8 +34,9 @@ final class PokeList extends AbstractTableModel{
     } 
    
 
-    void sort(boolean[] filters)
+    int sort(boolean[] filters)
     {
+        int pokeCount = 0;
         int tableSize = data.size();
         data.clear();
         for(int i = 0; i < masterList.size(); i++)
@@ -44,11 +45,13 @@ final class PokeList extends AbstractTableModel{
             {
                 data.add(masterList.get(i));
                 fireTableRowsInserted(data.size()-1,data.size()-1);
+                pokeCount++;
             }
             
         }
         
-        searchPokemon();
+        if(searchKey != null)
+        pokeCount -= searchPokemon();
         
         if(data.isEmpty())
         {
@@ -60,6 +63,7 @@ final class PokeList extends AbstractTableModel{
         {
                 fireTableDataChanged();
         }
+        return pokeCount;
     }
     
     
@@ -216,14 +220,15 @@ final class PokeList extends AbstractTableModel{
         searchPokemon();
     }
 
-    private void searchPokemon() {
-       
+    private int searchPokemon() {
+        int pokesRemoved = 0;
         for(int i = 0; i < data.size(); i++)
         {
-            if(!data.get(i).getName().toLowerCase().contains(searchKey.toLowerCase()))
+            if(!(data.get(i).getName().toLowerCase().contains(searchKey.toLowerCase())) )
             {
                 data.remove(i);
                 i--;
+                pokesRemoved++;
             }
         }
         if(data.isEmpty())
@@ -233,6 +238,7 @@ final class PokeList extends AbstractTableModel{
             //fireTableRowsDeleted(0, tableSize);
         }
         fireTableDataChanged();
+        return pokesRemoved;
     }
 
     void colSort(int index) {

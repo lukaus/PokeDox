@@ -138,9 +138,11 @@ public class mainWindow extends javax.swing.JFrame {
         allPokemonButton = new javax.swing.JRadioButton();
         evoFamButton = new javax.swing.JRadioButton();
         saveButton = new javax.swing.JButton();
+        pokeCountLabel = new javax.swing.JLabel();
+        pokeCountOutLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("PokéDox v 0.8");
+        setTitle("PokéDox v 0.9");
         setBackground(new java.awt.Color(255, 255, 255));
         setName("mainFrame"); // NOI18N
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -401,7 +403,7 @@ public class mainWindow extends javax.swing.JFrame {
         titlePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        titleLabel.setText("PokéDox v 0.8");
+        titleLabel.setText("PokéDox v 0.9");
 
         creditsLabel.setText("copyright 2015 by Luke Stanley");
 
@@ -573,14 +575,14 @@ public class mainWindow extends javax.swing.JFrame {
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tableScrollPane)
+                .addContainerGap())
         );
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
         );
 
         typeFiltersPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1024,6 +1026,10 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
+        pokeCountLabel.setText("Pokemon currenlty listed: ");
+
+        pokeCountOutLabel.setText("721");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1044,7 +1050,7 @@ public class mainWindow extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(pokePicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(selectedPokemonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1059,7 +1065,11 @@ public class mainWindow extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(evoFamButton)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(saveButton)))))
+                                .addComponent(pokeCountLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pokeCountOutLabel)
+                                    .addComponent(saveButton))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pokePicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1080,7 +1090,11 @@ public class mainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(selectedPokemonLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveButton))
+                        .addComponent(saveButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pokeCountOutLabel)
+                            .addComponent(pokeCountLabel)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1107,7 +1121,7 @@ public class mainWindow extends javax.swing.JFrame {
         caughtCheck.setSelected(true);
         tradeCheck.setSelected(true);
         seenCheck.setSelected(true);
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
         
     }//GEN-LAST:event_allCollectionButtonActionPerformed
 
@@ -1125,7 +1139,7 @@ public class mainWindow extends javax.swing.JFrame {
         sinnohCheck.setSelected(true);
         unovaCheck.setSelected(true);
         kalosCheck.setSelected(true);
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_allRegionButtonActionPerformed
 
     private void noRegionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noRegionButtonActionPerformed
@@ -1136,7 +1150,7 @@ public class mainWindow extends javax.swing.JFrame {
         sinnohCheck.setSelected(false);
         unovaCheck.setSelected(false);
         kalosCheck.setSelected(false);
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_noRegionButtonActionPerformed
 
     private void noCollectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noCollectionButtonActionPerformed
@@ -1147,7 +1161,7 @@ public class mainWindow extends javax.swing.JFrame {
         caughtCheck.setSelected(false);
         tradeCheck.setSelected(false);
         seenCheck.setSelected(false);
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_noCollectionButtonActionPerformed
 
     private void setMultipleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setMultipleFieldActionPerformed
@@ -1208,7 +1222,7 @@ public class mainWindow extends javax.swing.JFrame {
         caughtCheck.setSelected(true);
         tradeCheck.setSelected(false);
         seenCheck.setSelected(false);
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_defaultCollectionButton
 
     private void noTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noTypeButtonActionPerformed
@@ -1230,7 +1244,7 @@ public class mainWindow extends javax.swing.JFrame {
         iceBox.setSelected(false);
         dragonBox.setSelected(false);
         darkBox.setSelected(false);
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_noTypeButtonActionPerformed
 
     private void allTypeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allTypeButtonActionPerformed
@@ -1252,12 +1266,12 @@ public class mainWindow extends javax.swing.JFrame {
         iceBox.setSelected(true);
         dragonBox.setSelected(true);
         darkBox.setSelected(true);
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_allTypeButtonActionPerformed
 
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-           pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_checkBoxActionPerformed
 
     private void iconLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLabelMouseClicked
@@ -1271,44 +1285,8 @@ public class mainWindow extends javax.swing.JFrame {
        
         String searchKey = searchField.getText();
         pokeList.setSearchKey(searchKey);
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_searchFieldKeyReleased
-
-    private void pokeTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pokeTablePropertyChange
-        // unused
-
-    }//GEN-LAST:event_pokeTablePropertyChange
-
-    private void pokeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokeTableMouseClicked
-        
-        Point point = evt.getPoint();
-        int column = pokeTable.columnAtPoint(point);
-        int row =    pokeTable.rowAtPoint(point);
-        if(pokeList.isCellEditable(row, column))
-        {
-            if(column == 8)
-            {
-                //    pokeList.flipValue(row, column);
-            }
-            if(column ==9)
-            {
-                //   pokeList.flipValue(row, column);
-            }
-            if(column == 10)
-            {
-                //     pokeList.flipValue(row, column);
-            }
-            if(column == 11)
-            {
-                //    pokeList.flipValue(row, column);
-            }
-            if(column == 12)
-            {
-                //    pokeList.changeCellAt(row, column,((EventObject) evt));
-            }
-        }
-
-    }//GEN-LAST:event_pokeTableMouseClicked
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         pokeList.saveData();
@@ -1335,7 +1313,7 @@ public class mainWindow extends javax.swing.JFrame {
         {
             dualOnlyBox.setSelected(false);
         }
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_singleOnlyBoxActionPerformed
 
     private void dualOnlyBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dualOnlyBoxActionPerformed
@@ -1345,7 +1323,7 @@ public class mainWindow extends javax.swing.JFrame {
         {
             singleOnlyBox.setSelected(false);
         }
-        pokeList.sort(getFilters());
+        pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_dualOnlyBoxActionPerformed
 
     private void markNotSeenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markNotSeenButtonActionPerformed
@@ -1371,6 +1349,40 @@ public class mainWindow extends javax.swing.JFrame {
             pokeList.setMultiplesNumber(indices[i], setMultipleField.getText());
         }
     }//GEN-LAST:event_setMultipleButtonActionPerformed
+
+    private void pokeTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pokeTablePropertyChange
+        // unused
+    }//GEN-LAST:event_pokeTablePropertyChange
+
+    private void pokeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokeTableMouseClicked
+
+        Point point = evt.getPoint();
+        int column = pokeTable.columnAtPoint(point);
+        int row =    pokeTable.rowAtPoint(point);
+        if(pokeList.isCellEditable(row, column))
+        {
+            if(column == 8)
+            {
+                //    pokeList.flipValue(row, column);
+            }
+            if(column ==9)
+            {
+                //   pokeList.flipValue(row, column);
+            }
+            if(column == 10)
+            {
+                //     pokeList.flipValue(row, column);
+            }
+            if(column == 11)
+            {
+                //    pokeList.flipValue(row, column);
+            }
+            if(column == 12)
+            {
+                //    pokeList.changeCellAt(row, column,((EventObject) evt));
+            }
+        }
+    }//GEN-LAST:event_pokeTableMouseClicked
     
     boolean[] getFilters()
     {
@@ -1475,6 +1487,8 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox normalBox;
     private javax.swing.JCheckBox notHaveCheck;
     private javax.swing.JCheckBox poisonBox;
+    private javax.swing.JLabel pokeCountLabel;
+    private javax.swing.JLabel pokeCountOutLabel;
     private javax.swing.JLabel pokePicLabel;
     private javax.swing.JPanel pokePicPanel;
     private javax.swing.JTable pokeTable;
