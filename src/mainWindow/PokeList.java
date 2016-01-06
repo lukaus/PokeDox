@@ -313,25 +313,28 @@ final class PokeList extends AbstractTableModel{
         System.out.println("In evoQuell()");
         int quelledPokes = 0;
         int currentDexNum = 1;
-        boolean[] pokeFamilies = new boolean[363];
-        for(int i = 0; i < 363; i++)
+        boolean[] pokeFamilies = new boolean[364];
+        for(int i = 0; i < 364; i++)
             pokeFamilies[i] = false;
         
         for(int j = 0; j < data.size(); j++)
         {
             if( pokeFamilies[data.get(j).getEvoFamily()] == true )
             {
+              //  System.out.println("----------- " + data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being quelled!");
                 if(data.get(j).isCaught())
                     data.get(currentDexNum).setCaught(true);
                 data.remove(j);
                 quelledPokes++;
-                System.out.println("----------- " + data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being quelled!");
+                j--;
+                
             }
             else
             {
-                System.out.println(data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being kept.");
+               // System.out.println(data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being kept.");
                 currentDexNum = data.get(j).getNatlDex();
                 pokeFamilies[data.get(j).getEvoFamily()] = true;
+                data.get(j).setName(data.get(j).getName() + " family");
             }
         }
         

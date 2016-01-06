@@ -7,16 +7,16 @@ Version numbering is more of just milestones, can't even remember most of them, 
 
 VERSION 0.9 INCLUDES:
 
-    -   Finished (visually) GUI
+    -   Finished GUI
     -   Completed Pokemon list with dex numbers/types
     -   Filter for region, types and collection
     -   Search by Pokemon name function
     -   Saveable changes to data
-    -   Implement the rest of the GUI: "Mark Selected As..." buttons
+    -   Fully implemented GUI
+    -   Implement sorting/viewing by evolution family
 
 # This program is now useable!!
 
 TODO for final version (1.0):
 
     -   Make pokemon's icon appear in the proper panel when selected
-    -   Implement sorting/viewing by evolution family
