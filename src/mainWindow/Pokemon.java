@@ -25,7 +25,6 @@ public final class Pokemon implements Comparable<Pokemon>{
     private int kalosDex;
     private int comparator; 
 
-
     private String name;
     private int type1;
     private int type2;

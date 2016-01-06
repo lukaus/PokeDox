@@ -5,6 +5,7 @@
  */
 package mainWindow;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -16,12 +17,14 @@ import javax.swing.AbstractCellEditor;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.event.CellEditorListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
@@ -454,14 +457,12 @@ public class mainWindow extends javax.swing.JFrame {
 
         tableScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        //TableColumn col = pokeTable.getColumnModel().getColumn(12);
-        //  col.setCellEditor(new CustomCellEditor());
         pokeTable.setModel(pokeList);
-        //DefaultCellEditor singleClickMultiples = new DefaultCellEditor(new JTextField());
-        //singleClickMultiples.setClickCountToStart(1);
-        /*
-        */
-        //pokeTable.setDefaultEditor(pokeTable.getColumnClass(12), singleClickMultiples);
+        pokeTable.getColumnModel().getColumn(3).setCellRenderer(new DexRenderer());
+        pokeTable.getColumnModel().getColumn(4).setCellRenderer(new DexRenderer());
+        pokeTable.getColumnModel().getColumn(5).setCellRenderer(new DexRenderer());
+        pokeTable.getColumnModel().getColumn(6).setCellRenderer(new DexRenderer());
+        pokeTable.getColumnModel().getColumn(7).setCellRenderer(new DexRenderer());
         pokeTable.setOpaque(false);
         DefaultCellEditor multipleEditor = (DefaultCellEditor) pokeTable.getDefaultEditor(pokeTable.getColumnClass(12));
         multipleEditor.setClickCountToStart(1);
@@ -1112,8 +1113,7 @@ public class mainWindow extends javax.swing.JFrame {
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         
-      //  if(this.getWidth() > 803)
-      //      this.setSize(803, this.getHeight());
+      //  unused
     }//GEN-LAST:event_formComponentResized
 
     private void allRegionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRegionButtonActionPerformed
@@ -1509,4 +1509,24 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox waterBox;
     // End of variables declaration//GEN-END:variables
  
+    static class DexRenderer extends DefaultTableCellRenderer {
+	    @Override
+	    public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+	        Component c = super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
+	        if (c instanceof JLabel && value instanceof Number) {
+	            JLabel label = (JLabel) c;
+	            label.setHorizontalAlignment(JLabel.RIGHT);
+	            Number num = (Number) value;
+                    int intValue = num.intValue();
+                    
+                    String text = String.valueOf(intValue);if(intValue == -1)
+                        label.setText("");
+	            else
+                        label.setText(text);
+	 
+	        //    label.setForeground(num.doubleValue() < 0 ? Color.RED : Color.BLACK);
+	        }
+	        return c;
+	    }
+    }
 }
