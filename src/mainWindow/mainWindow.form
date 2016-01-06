@@ -50,18 +50,36 @@
                   <Group type="102" attributes="0">
                       <Component id="typeFiltersPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="selectionPanel" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pokePicLabel" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="selectedPokemonLabel" min="-2" pref="108" max="-2" attributes="0"/>
-                          <Component id="pokePicPanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="selectionPanel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="pokePicPanel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="selectedPokemonLabel" min="-2" pref="108" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="searchLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="searchField" min="-2" pref="87" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="allPokemonButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="evoFamButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pokePicLabel" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,19 +94,32 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="selectionPanel" alignment="0" max="32767" attributes="0"/>
-                      <Component id="typeFiltersPanel" alignment="0" max="32767" attributes="0"/>
-                      <Component id="pokePicLabel" alignment="1" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
+                  <Component id="pokePicLabel" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                  <Component id="typeFiltersPanel" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="pokePicPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="selectedPokemonLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="selectionPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="searchLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="searchField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="allPokemonButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="evoFamButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="tablePanel" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -521,24 +552,8 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="tableScrollPane" min="-2" pref="780" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="searchLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="searchField" min="-2" pref="87" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="allPokemonButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="evoFamButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                  <Component id="tableScrollPane" min="-2" pref="780" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -546,18 +561,8 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                          <Component id="searchField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="searchLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="allPokemonButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="evoFamButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tableScrollPane" pref="341" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                  <Component id="tableScrollPane" pref="284" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -600,41 +605,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="searchLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Pok&#xe9;mon Search by name:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="searchField">
-          <Events>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchFieldKeyReleased"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="allPokemonButton">
-          <Properties>
-            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="allOrEvoFamRadioSelectionGroup"/>
-            </Property>
-            <Property name="selected" type="boolean" value="true"/>
-            <Property name="text" type="java.lang.String" value="All Pokemon"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="evoFamButton">
-          <Properties>
-            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="allOrEvoFamRadioSelectionGroup"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="By Evolution Family"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="saveButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Save"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="typeFiltersPanel">
@@ -686,7 +656,6 @@
                               <Component id="iceBox" min="-2" max="-2" attributes="0"/>
                               <Component id="psychicBox" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="darkBox" min="-2" max="-2" attributes="0"/>
-                              <Component id="strictBox" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -698,27 +667,28 @@
                           <Component id="noTypeButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="typeFiltersLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="19" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="strictBox" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="singleOnlyBox" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="dualOnlyBox" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="typeFiltersLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
+              <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="typeFiltersLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="strictBox" min="-2" pref="20" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="typeFiltersLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="normalBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fireBox" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -752,6 +722,14 @@
                       <Component id="fairyBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="allTypeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="noTypeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="strictBox" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="singleOnlyBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dualOnlyBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -950,6 +928,24 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JCheckBox" name="singleOnlyBox">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Single-type Only"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="singleOnlyBoxActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="dualOnlyBox">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dual-type only"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dualOnlyBoxActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSeparator" name="jSeparator1">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="selectionPanel">
@@ -970,44 +966,38 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jButton1" min="-2" pref="143" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="setMultipleField" min="-2" pref="33" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="setMultipleButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="markWantBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="setCaughtBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="markCaughtButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="markWantButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="markMultiButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="markMultiBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="markWantBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="setCaughtBox" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="markTradeBox" min="-2" max="-2" attributes="0"/>
-                                      <Component id="markSeenBox" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="markNotSeenButton" min="-2" max="-2" attributes="0"/>
-                                      <Component id="markNotTradeButton" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="setMultipleField" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="setMultipleButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="markCaughtButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="markWantButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="markTradeBox" min="-2" max="-2" attributes="0"/>
+                              <Component id="markSeenBox" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="markNotSeenButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="markNotTradeButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="selectionAllButton" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -1017,9 +1007,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="selectedLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="setCaughtBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="markCaughtButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1030,7 +1020,7 @@
                               <Component id="markWantBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="markSeenBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="markNotSeenButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1044,14 +1034,11 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="markMultiBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="markMultiButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="setMultipleButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="setMultipleField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="selectionAllButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1073,12 +1060,6 @@
             <Property name="text" type="java.lang.String" value="Caught"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="markMultiBox">
-          <Properties>
-            <Property name="selected" type="boolean" value="true"/>
-            <Property name="text" type="java.lang.String" value="Have Multiple"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JCheckBox" name="markWantBox">
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
@@ -1095,11 +1076,6 @@
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Seen"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="markMultiButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Mark..."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="markWantButton">
@@ -1122,11 +1098,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Mark..."/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markNotSeenButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="markNotTradeButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mark..."/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markNotTradeButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="setMultipleField">
           <Properties>
@@ -1140,13 +1122,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Set Multiples"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setMultipleButtonActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="selectionAllButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Apply all to selected"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectionAllButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -1179,6 +1164,41 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Selected Pok&#xe9;mon"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="searchLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pok&#xe9;mon Search by name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="searchField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchFieldKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="allPokemonButton">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="allOrEvoFamRadioSelectionGroup"/>
+        </Property>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="All Pokemon"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="evoFamButton">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="allOrEvoFamRadioSelectionGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="By Evolution Family"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="saveButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

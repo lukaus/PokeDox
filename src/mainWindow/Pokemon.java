@@ -157,9 +157,21 @@ public final class Pokemon implements Comparable<Pokemon>{
         "STL", "FIR", "WTR", "GRS",
         "ELC", "PSY", "ICE", "DRG",
         "DRK", "FRY"
+        strictMatch, singleOnly, dualOnly
         /*
         ...  check against filters
         */
+        if(filters[31] == true)
+        {
+            if(this.getType2() != 0)
+                return false;
+        }
+        
+        if(filters[32] == true)
+        {
+            if(this.getType2() == 0)
+                return false;
+        }
 
         
         if(filters[getType1() + 11] == true)    // check if type is permitted

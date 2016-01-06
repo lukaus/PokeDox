@@ -33,8 +33,7 @@ final class PokeList extends AbstractTableModel{
         getPokemon();
     } 
    
-    
-    
+
     void sort(boolean[] filters)
     {
         int tableSize = data.size();
@@ -271,5 +270,39 @@ final class PokeList extends AbstractTableModel{
             masterList.get(data.get(row).getNatlDex()-1).setTrade(data.get(row).isTrade());
             fireTableDataChanged();
         }
+    }
+
+    void setToCaught(int i, boolean selected) 
+    {
+       data.get(i).setCaught(selected);
+       masterList.get(i).setCaught(selected);
+       fireTableDataChanged();
+    }
+
+    void setToWant(int i, boolean selected) 
+    {
+       data.get(i).setWant(selected);
+       masterList.get(i).setWant(selected);
+       fireTableDataChanged();
+    }
+
+    void setToSeen(int i, boolean selected) 
+    {
+       data.get(i).setSeen(selected);
+       masterList.get(i).setSeen(selected);
+       fireTableDataChanged();
+    }
+
+    void setToTrade(int i, boolean selected) 
+    {
+       data.get(i).setTrade(selected);
+       masterList.get(i).setTrade(selected);
+       fireTableDataChanged();
+    }
+
+    void setMultiplesNumber(int i, String text) {
+       data.get(i).setMultiples(Integer.parseInt(text));
+       masterList.get(i).setMultiples(Integer.parseInt(text));
+       fireTableDataChanged();
     }
 }

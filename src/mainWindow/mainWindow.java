@@ -88,11 +88,6 @@ public class mainWindow extends javax.swing.JFrame {
         pokeList = new PokeList();
         pokeTable = new javax.swing.JTable(pokeList)
         ;
-        searchLabel = new javax.swing.JLabel();
-        searchField = new javax.swing.JTextField();
-        allPokemonButton = new javax.swing.JRadioButton();
-        evoFamButton = new javax.swing.JRadioButton();
-        saveButton = new javax.swing.JButton();
         typeFiltersPanel = new javax.swing.JPanel();
         typeFiltersLabel = new javax.swing.JLabel();
         normalBox = new javax.swing.JCheckBox();
@@ -116,24 +111,30 @@ public class mainWindow extends javax.swing.JFrame {
         allTypeButton = new javax.swing.JButton();
         noTypeButton = new javax.swing.JButton();
         strictBox = new javax.swing.JCheckBox();
+        singleOnlyBox = new javax.swing.JCheckBox();
+        dualOnlyBox = new javax.swing.JCheckBox();
+        jSeparator1 = new javax.swing.JSeparator();
         selectionPanel = new javax.swing.JPanel();
         selectedLabel = new javax.swing.JLabel();
         setCaughtBox = new javax.swing.JCheckBox();
-        markMultiBox = new javax.swing.JCheckBox();
         markWantBox = new javax.swing.JCheckBox();
         markTradeBox = new javax.swing.JCheckBox();
         markSeenBox = new javax.swing.JCheckBox();
-        markMultiButton = new javax.swing.JButton();
         markWantButton = new javax.swing.JButton();
         markCaughtButton = new javax.swing.JButton();
         markNotSeenButton = new javax.swing.JButton();
         markNotTradeButton = new javax.swing.JButton();
         setMultipleField = new javax.swing.JTextField();
         setMultipleButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        selectionAllButton = new javax.swing.JButton();
         pokePicPanel = new javax.swing.JPanel();
         pokePicLabel = new javax.swing.JLabel();
         selectedPokemonLabel = new javax.swing.JLabel();
+        searchLabel = new javax.swing.JLabel();
+        searchField = new javax.swing.JTextField();
+        allPokemonButton = new javax.swing.JRadioButton();
+        evoFamButton = new javax.swing.JRadioButton();
+        saveButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PokéDox v 0.8");
@@ -565,63 +566,20 @@ public class mainWindow extends javax.swing.JFrame {
         //TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(pokeTable.getModel());
         //pokeTable.setRowSorter(sorter);
 
-        searchLabel.setText("Pokémon Search by name:");
-
-        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                searchFieldKeyReleased(evt);
-            }
-        });
-
-        allOrEvoFamRadioSelectionGroup.add(allPokemonButton);
-        allPokemonButton.setSelected(true);
-        allPokemonButton.setText("All Pokemon");
-
-        allOrEvoFamRadioSelectionGroup.add(evoFamButton);
-        evoFamButton.setText("By Evolution Family");
-
-        saveButton.setText("Save");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout tablePanelLayout = new javax.swing.GroupLayout(tablePanel);
         tablePanel.setLayout(tablePanelLayout);
         tablePanelLayout.setHorizontalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
-                .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(tablePanelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tablePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(searchLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(allPokemonButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(evoFamButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(saveButton)))
+                .addGap(2, 2, 2)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton)
-                    .addGroup(tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchLabel)
-                        .addComponent(allPokemonButton)
-                        .addComponent(evoFamButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
         );
 
         typeFiltersPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -786,6 +744,20 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
+        singleOnlyBox.setText("Single-type Only");
+        singleOnlyBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                singleOnlyBoxActionPerformed(evt);
+            }
+        });
+
+        dualOnlyBox.setText("Dual-type only");
+        dualOnlyBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dualOnlyBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout typeFiltersPanelLayout = new javax.swing.GroupLayout(typeFiltersPanel);
         typeFiltersPanel.setLayout(typeFiltersPanelLayout);
         typeFiltersPanelLayout.setHorizontalGroup(
@@ -820,30 +792,31 @@ public class mainWindow extends javax.swing.JFrame {
                             .addComponent(dragonBox)
                             .addComponent(iceBox)
                             .addComponent(psychicBox)
-                            .addComponent(darkBox)
-                            .addComponent(strictBox))
+                            .addComponent(darkBox))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(typeFiltersPanelLayout.createSequentialGroup()
                         .addComponent(fairyBox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(allTypeButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(noTypeButton)))
-                .addContainerGap())
+                        .addComponent(noTypeButton))))
             .addGroup(typeFiltersPanelLayout.createSequentialGroup()
-                .addComponent(typeFiltersLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(typeFiltersPanelLayout.createSequentialGroup()
+                        .addComponent(strictBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(singleOnlyBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dualOnlyBox))
+                    .addComponent(typeFiltersLabel))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         typeFiltersPanelLayout.setVerticalGroup(
             typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(typeFiltersPanelLayout.createSequentialGroup()
-                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(typeFiltersPanelLayout.createSequentialGroup()
-                        .addComponent(typeFiltersLabel)
-                        .addGap(8, 8, 8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, typeFiltersPanelLayout.createSequentialGroup()
-                        .addComponent(strictBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(typeFiltersLabel)
+                .addGap(8, 8, 8)
                 .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(normalBox)
                     .addComponent(fireBox)
@@ -872,7 +845,14 @@ public class mainWindow extends javax.swing.JFrame {
                     .addComponent(steelBox)
                     .addComponent(fairyBox)
                     .addComponent(allTypeButton)
-                    .addComponent(noTypeButton)))
+                    .addComponent(noTypeButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(typeFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(strictBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(singleOnlyBox)
+                    .addComponent(dualOnlyBox)))
         );
 
         selectionPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
@@ -883,9 +863,6 @@ public class mainWindow extends javax.swing.JFrame {
         setCaughtBox.setSelected(true);
         setCaughtBox.setText("Caught");
 
-        markMultiBox.setSelected(true);
-        markMultiBox.setText("Have Multiple");
-
         markWantBox.setSelected(true);
         markWantBox.setText("Want");
 
@@ -894,8 +871,6 @@ public class mainWindow extends javax.swing.JFrame {
 
         markSeenBox.setSelected(true);
         markSeenBox.setText("Seen");
-
-        markMultiButton.setText("Mark...");
 
         markWantButton.setText("Mark...");
         markWantButton.addActionListener(new java.awt.event.ActionListener() {
@@ -912,8 +887,18 @@ public class mainWindow extends javax.swing.JFrame {
         });
 
         markNotSeenButton.setText("Mark...");
+        markNotSeenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                markNotSeenButtonActionPerformed(evt);
+            }
+        });
 
         markNotTradeButton.setText("Mark...");
+        markNotTradeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                markNotTradeButtonActionPerformed(evt);
+            }
+        });
 
         setMultipleField.setText("1");
         setMultipleField.addActionListener(new java.awt.event.ActionListener() {
@@ -923,11 +908,16 @@ public class mainWindow extends javax.swing.JFrame {
         });
 
         setMultipleButton.setText("Set Multiples");
-
-        jButton1.setText("Apply all to selected");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        setMultipleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                setMultipleButtonActionPerformed(evt);
+            }
+        });
+
+        selectionAllButton.setText("Apply all to selected");
+        selectionAllButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectionAllButtonActionPerformed(evt);
             }
         });
 
@@ -940,41 +930,37 @@ public class mainWindow extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(selectionPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(selectionPanelLayout.createSequentialGroup()
+                        .addComponent(setMultipleField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(setMultipleButton))
                     .addGroup(selectionPanelLayout.createSequentialGroup()
                         .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(selectionPanelLayout.createSequentialGroup()
-                                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(markWantBox)
-                                    .addComponent(setCaughtBox))
-                                .addGap(30, 30, 30)
-                                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(markCaughtButton)
-                                    .addComponent(markWantButton)
-                                    .addComponent(markMultiButton)))
-                            .addComponent(markMultiBox))
-                        .addGap(18, 18, 18)
-                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(selectionPanelLayout.createSequentialGroup()
-                                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(markTradeBox)
-                                    .addComponent(markSeenBox))
-                                .addGap(28, 28, 28)
-                                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(markNotSeenButton)
-                                    .addComponent(markNotTradeButton)))
-                            .addGroup(selectionPanelLayout.createSequentialGroup()
-                                .addComponent(setMultipleField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(setMultipleButton)))))
+                            .addComponent(markWantBox)
+                            .addComponent(setCaughtBox))
+                        .addGap(30, 30, 30)
+                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(markCaughtButton)
+                            .addComponent(markWantButton))))
+                .addGap(18, 18, 18)
+                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(selectionPanelLayout.createSequentialGroup()
+                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(markTradeBox)
+                            .addComponent(markSeenBox))
+                        .addGap(28, 28, 28)
+                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(markNotSeenButton)
+                            .addComponent(markNotTradeButton)))
+                    .addComponent(selectionAllButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         selectionPanelLayout.setVerticalGroup(
             selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(selectionPanelLayout.createSequentialGroup()
                 .addComponent(selectedLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(selectionPanelLayout.createSequentialGroup()
                         .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -994,13 +980,10 @@ public class mainWindow extends javax.swing.JFrame {
                             .addComponent(markNotTradeButton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(markMultiBox)
-                    .addComponent(markMultiButton)
                     .addComponent(setMultipleButton)
-                    .addComponent(setMultipleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(setMultipleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectionAllButton))
+                .addContainerGap())
         );
 
         pokePicPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1017,6 +1000,28 @@ public class mainWindow extends javax.swing.JFrame {
         );
 
         selectedPokemonLabel.setText("Selected Pokémon");
+
+        searchLabel.setText("Pokémon Search by name:");
+
+        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchFieldKeyReleased(evt);
+            }
+        });
+
+        allOrEvoFamRadioSelectionGroup.add(allPokemonButton);
+        allPokemonButton.setSelected(true);
+        allPokemonButton.setText("All Pokemon");
+
+        allOrEvoFamRadioSelectionGroup.add(evoFamButton);
+        evoFamButton.setText("By Evolution Family");
+
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1035,15 +1040,27 @@ public class mainWindow extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(typeFiltersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(selectionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pokePicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(selectedPokemonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pokePicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)))
-                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pokePicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(selectedPokemonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(searchLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(allPokemonButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(evoFamButton)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(saveButton)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pokePicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1055,23 +1072,34 @@ public class mainWindow extends javax.swing.JFrame {
                     .addComponent(regionFilterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(selectionPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(typeFiltersPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pokePicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pokePicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeFiltersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pokePicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(selectedPokemonLabel)))
+                        .addComponent(selectedPokemonLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(saveButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchLabel)
+                            .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(allPokemonButton)
+                            .addComponent(evoFamButton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void allCollectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allCollectionButtonActionPerformed
-        // TODO add your handling code here:
+       
         wantCheck.setSelected(true);
         multiHaveCheck.setSelected(true);
         notHaveCheck.setSelected(true);
@@ -1083,13 +1111,13 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_allCollectionButtonActionPerformed
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
-        // TODO add your handling code here:
+        
       //  if(this.getWidth() > 803)
       //      this.setSize(803, this.getHeight());
     }//GEN-LAST:event_formComponentResized
 
     private void allRegionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRegionButtonActionPerformed
-        // TODO add your handling code here:
+        //
         // set kanto, johto, hoenn, sinnoh, unova, and kalos boxes to true
         kantoCheck.setSelected(true);
         johtoCheck.setSelected(true);
@@ -1101,7 +1129,7 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_allRegionButtonActionPerformed
 
     private void noRegionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noRegionButtonActionPerformed
-        // TODO add your handling code here:
+      
         kantoCheck.setSelected(false);
         johtoCheck.setSelected(false);
         hoennCheck.setSelected(false);
@@ -1112,7 +1140,7 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_noRegionButtonActionPerformed
 
     private void noCollectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noCollectionButtonActionPerformed
-        // TODO add your handling code here:
+        
         wantCheck.setSelected(false);
         multiHaveCheck.setSelected(false);
         notHaveCheck.setSelected(false);
@@ -1123,25 +1151,57 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_noCollectionButtonActionPerformed
 
     private void setMultipleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setMultipleFieldActionPerformed
-        // TODO add your handling code here:
+        // probably unused? setMultipleField is the button we use here instead
     }//GEN-LAST:event_setMultipleFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void selectionAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectionAllButtonActionPerformed
+       int[] indices = pokeTable.getSelectedRows();
+       for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setToCaught(indices[i], setCaughtBox.isSelected());
+        }
+       
+       for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setToWant(indices[i], markWantBox.isSelected());
+        }
+       
+       for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setToSeen(indices[i], markSeenBox.isSelected());
+        }
+       
+        for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setToTrade(indices[i], markTradeBox.isSelected());
+        }
+        
+        for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setMultiplesNumber(indices[i], setMultipleField.getText());
+        }
+    }//GEN-LAST:event_selectionAllButtonActionPerformed
 
     private void markCaughtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markCaughtButtonActionPerformed
-        // TODO add your handling code here:
-     
+        
+        int[] indices = pokeTable.getSelectedRows();
+        for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setToCaught(indices[i], setCaughtBox.isSelected());
+        }
     }//GEN-LAST:event_markCaughtButtonActionPerformed
 
     private void markWantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markWantButtonActionPerformed
-        // TODO add your handling code here:
-      
+        
+        int[] indices = pokeTable.getSelectedRows();
+        for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setToWant(indices[i], markWantBox.isSelected());
+        }
     }//GEN-LAST:event_markWantButtonActionPerformed
 
     private void defaultCollectionButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultCollectionButton
-        // TODO add your handling code here:
+      
         wantCheck.setSelected(false);
         multiHaveCheck.setSelected(false);
         notHaveCheck.setSelected(false);
@@ -1201,26 +1261,26 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_checkBoxActionPerformed
 
     private void iconLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLabelMouseClicked
-        // TODO add your handling code here:
+        
      //   JOptionPane.showMessageDialog(selectionPanel, "Don't click OK", "Error:", ERROR_MESSAGE);
-        if(this.getWidth() > 813)
+        if(this.getWidth() != 813)
             this.setSize(813, this.getHeight());
     }//GEN-LAST:event_iconLabelMouseClicked
 
     private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
-        // TODO add your handling code here:
+       
         String searchKey = searchField.getText();
         pokeList.setSearchKey(searchKey);
         pokeList.sort(getFilters());
     }//GEN-LAST:event_searchFieldKeyReleased
 
     private void pokeTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pokeTablePropertyChange
-        // TODO add your handling code here:
+        // unused
 
     }//GEN-LAST:event_pokeTablePropertyChange
 
     private void pokeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokeTableMouseClicked
-        // TOSO add your handling code here:
+        
         Point point = evt.getPoint();
         int column = pokeTable.columnAtPoint(point);
         int row =    pokeTable.rowAtPoint(point);
@@ -1251,12 +1311,11 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_pokeTableMouseClicked
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:.
         pokeList.saveData();
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
+        
         int result = JOptionPane.showConfirmDialog(titlePanel, "Do you want to save your changes?", "Exiting program.", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if(result == JOptionPane.YES_OPTION)
@@ -1269,6 +1328,49 @@ public class mainWindow extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_formWindowClosing
+
+    private void singleOnlyBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleOnlyBoxActionPerformed
+        
+        if(singleOnlyBox.isSelected())
+        {
+            dualOnlyBox.setSelected(false);
+        }
+        pokeList.sort(getFilters());
+    }//GEN-LAST:event_singleOnlyBoxActionPerformed
+
+    private void dualOnlyBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dualOnlyBoxActionPerformed
+        
+      
+        if(dualOnlyBox.isSelected())
+        {
+            singleOnlyBox.setSelected(false);
+        }
+        pokeList.sort(getFilters());
+    }//GEN-LAST:event_dualOnlyBoxActionPerformed
+
+    private void markNotSeenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markNotSeenButtonActionPerformed
+        int[] indices = pokeTable.getSelectedRows();
+        for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setToSeen(indices[i], markSeenBox.isSelected());
+        }
+    }//GEN-LAST:event_markNotSeenButtonActionPerformed
+
+    private void markNotTradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markNotTradeButtonActionPerformed
+        int[] indices = pokeTable.getSelectedRows();
+        for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setToTrade(indices[i], markTradeBox.isSelected());
+        }
+    }//GEN-LAST:event_markNotTradeButtonActionPerformed
+
+    private void setMultipleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setMultipleButtonActionPerformed
+        int[] indices = pokeTable.getSelectedRows();
+        for(int i = 0; i < indices.length; i++)
+        {
+            pokeList.setMultiplesNumber(indices[i], setMultipleField.getText());
+        }
+    }//GEN-LAST:event_setMultipleButtonActionPerformed
     
     boolean[] getFilters()
     {
@@ -1283,7 +1385,7 @@ public class mainWindow extends javax.swing.JFrame {
                           groundBox.isSelected(), rockBox.isSelected(), bugBox.isSelected(), ghostBox.isSelected(),
                           steelBox.isSelected(), fireBox.isSelected(),waterBox.isSelected(), grassBox.isSelected(),
                           electricBox.isSelected(), psychicBox.isSelected(), iceBox.isSelected(), dragonBox.isSelected(),      
-                          darkBox.isSelected(), fairyBox.isSelected(), strictBox.isSelected() };
+                          darkBox.isSelected(), fairyBox.isSelected(), strictBox.isSelected(), singleOnlyBox.isSelected(), dualOnlyBox.isSelected() };
         return vals;
     }
     
@@ -1338,6 +1440,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel creditsLabel;
     private javax.swing.JCheckBox darkBox;
     private javax.swing.JCheckBox dragonBox;
+    private javax.swing.JCheckBox dualOnlyBox;
     private javax.swing.JCheckBox electricBox;
     private javax.swing.JRadioButton evoFamButton;
     private javax.swing.JCheckBox fairyBox;
@@ -1351,16 +1454,14 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox iceBox;
     private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel iconPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JCheckBox johtoCheck;
     private javax.swing.JCheckBox kalosCheck;
     private javax.swing.JCheckBox kantoCheck;
     private javax.swing.JButton markCaughtButton;
-    private javax.swing.JCheckBox markMultiBox;
-    private javax.swing.JButton markMultiButton;
     private javax.swing.JButton markNotSeenButton;
     private javax.swing.JButton markNotTradeButton;
     private javax.swing.JCheckBox markSeenBox;
@@ -1387,10 +1488,12 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox seenCheck;
     private javax.swing.JLabel selectedLabel;
     private javax.swing.JLabel selectedPokemonLabel;
+    private javax.swing.JButton selectionAllButton;
     private javax.swing.JPanel selectionPanel;
     private javax.swing.JCheckBox setCaughtBox;
     private javax.swing.JButton setMultipleButton;
     private javax.swing.JTextField setMultipleField;
+    private javax.swing.JCheckBox singleOnlyBox;
     private javax.swing.JCheckBox sinnohCheck;
     private javax.swing.JCheckBox steelBox;
     private javax.swing.JCheckBox strictBox;
