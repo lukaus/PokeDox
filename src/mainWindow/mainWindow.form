@@ -306,7 +306,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="collectionLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="questionMarkLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
@@ -345,7 +345,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="collectionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="questionMarkLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -444,11 +444,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="defaultCollectionButton"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="questionMarkLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="?"/>
             <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;p&gt;Caught:   Shows all if enabled, only uncaught if disabled&lt;/p&gt;&#xa;&lt;p&gt;Have Multiple:    Shows all if disabled, only those with multiples if enabled&lt;/p&gt;&#xa;&lt;p&gt;Want:&#x9;          Shows all if disabled, only those marked &apos;want&apos; if enabled&lt;/p&gt;&#xa;&lt;p&gt;Trade:&#x9;          Shows all if disabled, only those marked to trade if enabled&lt;/p&gt;&#xa;&lt;p&gt;Don&apos;t Have:       Shows all if disabled, only those uncaught if enabled&lt;/p&gt;&#xa;&lt;p&gt;Seen:                Shows all if disabled, only seen if enabled&lt;/p&gt;&lt;/html&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="questionMarkLabelMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -505,7 +508,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Pok&#xe9;Dox v 0.99"/>
+            <Property name="text" type="java.lang.String" value="Pok&#xe9;Dox"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="creditsLabel">
@@ -597,6 +600,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pokeTableMouseClicked"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pokeTableMousePressed"/>
                 <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pokeTablePropertyChange"/>
               </Events>
               <AuxValues>
@@ -987,22 +991,16 @@
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="markSeenBox" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="markNotSeenButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="markSeenBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="markNotSeenButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="markTradeBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="markNotTradeButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="markTradeBox" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="markNotTradeButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">

@@ -44,7 +44,7 @@ final class PokeList extends AbstractTableModel{
         {
             if(masterList.get(i).includeQuery(filters))
             {
-                data.add(masterList.get(i));
+                data.add(new Pokemon(masterList.get(i)));
                 fireTableRowsInserted(data.size()-1,data.size()-1);
                 pokeCount++;
             }
@@ -77,7 +77,7 @@ final class PokeList extends AbstractTableModel{
         int i = 0;
         while(i < masterList.size())
         {
-            data.add(masterList.get(i));
+            data.add(new Pokemon(masterList.get(i)));
             i++;
         }
         
@@ -317,7 +317,7 @@ final class PokeList extends AbstractTableModel{
 
     private int evoQuell() 
     {
-        System.out.println("In evoQuell()");
+      //  System.out.println("In evoQuell()");
         int quelledPokes = 0;
         int currentDexNum = 1;
         boolean[] pokeFamilies = new boolean[364];
@@ -329,8 +329,8 @@ final class PokeList extends AbstractTableModel{
             if( pokeFamilies[data.get(j).getEvoFamily()] == true )
             {
               //  System.out.println("----------- " + data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being quelled!");
-           //     if(data.get(j).isCaught())
-            //        data.get(currentDexNum).setCaught(true);
+                if(data.get(j).isCaught())
+                    data.get(currentDexNum).setCaught(true);
                 data.remove(j);
                 quelledPokes++;
                 j--;
@@ -339,7 +339,7 @@ final class PokeList extends AbstractTableModel{
             else
             {
                // System.out.println(data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being kept.");
-                currentDexNum = data.get(j).getNatlDex();
+                currentDexNum = j;//data.get(j).getNatlDex();
                 pokeFamilies[data.get(j).getEvoFamily()] = true;
                 if(!data.get(j).getName().contains(" family"))
                     data.get(j).setName(data.get(j).getName() + " family");

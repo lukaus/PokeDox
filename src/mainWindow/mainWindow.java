@@ -84,7 +84,7 @@ public class mainWindow extends javax.swing.JFrame {
         allCollectionButton = new javax.swing.JButton();
         noCollectionButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        questionMarkLabel = new javax.swing.JLabel();
         titlePanel = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         creditsLabel = new javax.swing.JLabel();
@@ -341,8 +341,13 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("?");
-        jLabel1.setToolTipText("<html><p>Caught:   Shows all if enabled, only uncaught if disabled</p>\n<p>Have Multiple:    Shows all if disabled, only those with multiples if enabled</p>\n<p>Want:\t          Shows all if disabled, only those marked 'want' if enabled</p>\n<p>Trade:\t          Shows all if disabled, only those marked to trade if enabled</p>\n<p>Don't Have:       Shows all if disabled, only those uncaught if enabled</p>\n<p>Seen:                Shows all if disabled, only seen if enabled</p></html>");
+        questionMarkLabel.setText("?");
+        questionMarkLabel.setToolTipText("<html><p>Caught:   Shows all if enabled, only uncaught if disabled</p>\n<p>Have Multiple:    Shows all if disabled, only those with multiples if enabled</p>\n<p>Want:\t          Shows all if disabled, only those marked 'want' if enabled</p>\n<p>Trade:\t          Shows all if disabled, only those marked to trade if enabled</p>\n<p>Don't Have:       Shows all if disabled, only those uncaught if enabled</p>\n<p>Seen:                Shows all if disabled, only seen if enabled</p></html>");
+        questionMarkLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                questionMarkLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout collectionFilterPanelLayout = new javax.swing.GroupLayout(collectionFilterPanel);
         collectionFilterPanel.setLayout(collectionFilterPanelLayout);
@@ -351,7 +356,7 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(collectionFilterPanelLayout.createSequentialGroup()
                 .addComponent(collectionLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(questionMarkLabel)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(collectionFilterPanelLayout.createSequentialGroup()
                 .addContainerGap()
@@ -381,7 +386,7 @@ public class mainWindow extends javax.swing.JFrame {
             .addGroup(collectionFilterPanelLayout.createSequentialGroup()
                 .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(collectionLabel)
-                    .addComponent(jLabel1))
+                    .addComponent(questionMarkLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caughtCheck)
@@ -401,7 +406,7 @@ public class mainWindow extends javax.swing.JFrame {
         titlePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        titleLabel.setText("PokéDox v 0.99");
+        titleLabel.setText("PokéDox");
 
         creditsLabel.setText("copyright 2015 by Luke Stanley");
         creditsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -497,6 +502,9 @@ public class mainWindow extends javax.swing.JFrame {
         pokeTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pokeTableMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pokeTableMousePressed(evt);
             }
         });
         pokeTable.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -950,19 +958,15 @@ public class mainWindow extends javax.swing.JFrame {
                             .addComponent(markWantButton)
                             .addComponent(markCaughtButton))
                         .addGap(25, 25, 25)))
-                .addGap(18, 18, 18)
                 .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(selectionPanelLayout.createSequentialGroup()
-                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(selectionPanelLayout.createSequentialGroup()
-                                .addComponent(markSeenBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(markNotSeenButton))
-                            .addGroup(selectionPanelLayout.createSequentialGroup()
-                                .addComponent(markTradeBox)
-                                .addGap(18, 18, 18)
-                                .addComponent(markNotTradeButton)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(markSeenBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(markNotSeenButton))
+                    .addGroup(selectionPanelLayout.createSequentialGroup()
+                        .addComponent(markTradeBox)
+                        .addGap(18, 18, 18)
+                        .addComponent(markNotTradeButton)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, selectionPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -1405,20 +1409,6 @@ public class mainWindow extends javax.swing.JFrame {
         int column = pokeTable.columnAtPoint(point);
         int row = pokeTable.rowAtPoint(point);
         
-        int natlDex = pokeList.getNatlDexAt(row);
-        
-        
-        int imgY = (( natlDex / 27) * 33)+1;
-        int imgX  = (( (natlDex -1 ) % 27) * 33)+1;
-
-        img = masterImg.getSubimage(imgX, imgY, 32 ,32);
-        
-        img = img.getScaledInstance(80,80, SCALE_DEFAULT);
-    //    Image notBuffered = 
-        
-        icon = new ImageIcon(img);
-        
-        imgLabel.setIcon(icon);
         
         if(pokeList.isCellEditable(row, column))
         {
@@ -1470,6 +1460,38 @@ public class mainWindow extends javax.swing.JFrame {
                                                         "Pokeball icon: http://pokemontowerdefensetwo.wikia.com/wiki/File:Pokeball_icon.png\n" +
                                                         "PokeDox: Created 2015-2016 by Luke Stanley");
     }//GEN-LAST:event_creditsLabelMouseClicked
+
+    private void pokeTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokeTableMousePressed
+        // TODO add your handling code here:
+                Point point = evt.getPoint();
+        int column = pokeTable.columnAtPoint(point);
+        int row = pokeTable.rowAtPoint(point);
+        
+        int natlDex = pokeList.getNatlDexAt(row);
+        
+        
+        int imgY = (( natlDex / 27) * 33)+1;
+        int imgX  = (( (natlDex -1 ) % 27) * 33)+1;
+
+        img = masterImg.getSubimage(imgX, imgY, 32 ,32);
+        
+        img = img.getScaledInstance(80,80, SCALE_DEFAULT);
+    //    Image notBuffered = 
+        
+        icon = new ImageIcon(img);
+        
+        imgLabel.setIcon(icon);
+        
+    }//GEN-LAST:event_pokeTableMousePressed
+
+    private void questionMarkLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_questionMarkLabelMouseClicked
+        JOptionPane.showMessageDialog(regionFilterPanel,"Caught:   Shows all if enabled, only uncaught if disabled\n"
+                                                       + "Have Multiple:    Shows all if disabled, only those with multiples if enabled\n"
+                                                        +"Want:	          Shows all if disabled, only those marked 'want' if enabled\n"
+                                                        +"Trade:	          Shows all if disabled, only those marked to trade if enabled\n"
+                                                        +"Don't Have:       Shows all if disabled, only those uncaught if enabled\n"
+                                                        +"Seen:                Shows all if disabled, only seen if enabled");
+    }//GEN-LAST:event_questionMarkLabelMouseClicked
     
     boolean[] getFilters()
     {
@@ -1556,7 +1578,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel iconPanel;
     private javax.swing.JLabel imgLabel;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JCheckBox johtoCheck;
@@ -1581,6 +1602,7 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel pokePicPanel;
     private javax.swing.JTable pokeTable;
     private javax.swing.JCheckBox psychicBox;
+    private javax.swing.JLabel questionMarkLabel;
     private javax.swing.JPanel regionFilterPanel;
     private javax.swing.JLabel regionLabel;
     private javax.swing.JCheckBox rockBox;

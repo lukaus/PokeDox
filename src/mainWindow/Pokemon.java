@@ -62,6 +62,45 @@ public final class Pokemon implements Comparable<Pokemon>{
         System.out.println("This should NEVER be called");
         //shouldn't be called
     }
+    Pokemon(Pokemon p)
+    {
+        dataSet = new ArrayList<Object>();
+        setType1(p.getType1());
+        setType2(p.getType2());
+        dataSet.add(p.getNatlDex());      // add this to a ArrayList(for the JTable)
+        dataSet.add(p.getName());
+        dataSet.add(getType());
+        dataSet.add(p.getJohtoDex());
+        dataSet.add(p.getHoennDex());
+        dataSet.add(p.getSinnohDex());
+        dataSet.add(p.getUnovaDex());
+        dataSet.add(p.getKalosDex());
+ 
+        dataSet.add(p.isCaught());
+        dataSet.add(p.isSeen());
+        dataSet.add(p.isWant());
+        dataSet.add(p.isTrade());
+        dataSet.add(p.getMultiples());
+        dataSet.add(p.getEvoFamily());
+        
+        
+        setNatlDex(p.getNatlDex());      // Set appropriate fields
+        setJohtoDex(p.getJohtoDex());
+        setHoennDex(p.getHoennDex());
+        setSinnohDex(p.getSinnohDex());
+        setUnovaDex(p.getUnovaDex());
+        setKalosDex(p.getKalosDex());
+        setName(p.getName());
+        
+
+        setCaught(p.isCaught());
+        setSeen(p.isSeen());
+        setWant(p.isWant());
+        setTrade(p.isTrade());
+        setMultiples(p.getMultiples());
+        setEvoFamily(p.getEvoFamily());
+        
+    }
     
     Pokemon(int n, int j, int h, int s, int u, int k, String nm, int t1, int t2, boolean ca, boolean se, boolean wa, boolean tr, int mu, int ef)
     {   
