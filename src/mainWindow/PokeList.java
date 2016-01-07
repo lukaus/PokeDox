@@ -348,4 +348,9 @@ final class PokeList extends AbstractTableModel{
         
         return quelledPokes;        
     }
+
+    int getNatlDexAt(int row) {
+        return data.get(row).getNatlDex();
+    }
+
 }

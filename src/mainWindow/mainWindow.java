@@ -7,12 +7,18 @@ package mainWindow;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Image;
+import static java.awt.Image.SCALE_DEFAULT;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.EventObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.AbstractCellEditor;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
@@ -131,6 +137,7 @@ public class mainWindow extends javax.swing.JFrame {
         setMultipleButton = new javax.swing.JButton();
         selectionAllButton = new javax.swing.JButton();
         pokePicPanel = new javax.swing.JPanel();
+        imgLabel = new javax.swing.JLabel();
         pokePicLabel = new javax.swing.JLabel();
         selectedPokemonLabel = new javax.swing.JLabel();
         searchLabel = new javax.swing.JLabel();
@@ -140,9 +147,10 @@ public class mainWindow extends javax.swing.JFrame {
         saveButton = new javax.swing.JButton();
         pokeCountLabel = new javax.swing.JLabel();
         pokeCountOutLabel = new javax.swing.JLabel();
+        helpButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("PokéDox v 0.9");
+        setTitle("PokéDox");
         setBackground(new java.awt.Color(255, 255, 255));
         setName("mainFrame"); // NOI18N
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -403,7 +411,7 @@ public class mainWindow extends javax.swing.JFrame {
         titlePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        titleLabel.setText("PokéDox v 0.9");
+        titleLabel.setText("PokéDox v 0.99");
 
         creditsLabel.setText("copyright 2015 by Luke Stanley");
 
@@ -435,13 +443,16 @@ public class mainWindow extends javax.swing.JFrame {
             titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(titlePanelLayout.createSequentialGroup()
                 .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(titleLabel)
-                        .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlePanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(creditsLabel)
-                            .addGap(34, 34, 34)))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(iconPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -451,9 +462,9 @@ public class mainWindow extends javax.swing.JFrame {
                 .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(creditsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(iconPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -573,16 +584,13 @@ public class mainWindow extends javax.swing.JFrame {
         tablePanel.setLayout(tablePanelLayout);
         tablePanelLayout.setHorizontalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tablePanelLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(tableScrollPane)
-                .addContainerGap())
+            .addComponent(tableScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
         );
 
         typeFiltersPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -989,18 +997,37 @@ public class mainWindow extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        pokePicPanel.setBackground(new java.awt.Color(255, 255, 255));
         pokePicPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pokePicPanel.setForeground(new java.awt.Color(255, 255, 255));
+        pokePicPanel.setToolTipText("");
+
+        imgLabel.setBackground(new java.awt.Color(255, 255, 255));
+        imgLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pokePicPanelLayout = new javax.swing.GroupLayout(pokePicPanel);
         pokePicPanel.setLayout(pokePicPanelLayout);
         pokePicPanelLayout.setHorizontalGroup(
             pokePicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 104, Short.MAX_VALUE)
+            .addGroup(pokePicPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pokePicPanelLayout.setVerticalGroup(
             pokePicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 109, Short.MAX_VALUE)
+            .addGroup(pokePicPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        try
+        {
+            masterImg = ImageIO.read(new File("./src/mainWindow/pokemon_icondex.png"));
+        }
+        catch (IOException e) {
+        }
 
         selectedPokemonLabel.setText("Selected Pokémon");
 
@@ -1039,6 +1066,13 @@ public class mainWindow extends javax.swing.JFrame {
         pokeCountLabel.setText("Pokemon currently listed: ");
 
         pokeCountOutLabel.setText("721");
+
+        helpButton.setText("Help ");
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1079,8 +1113,10 @@ public class mainWindow extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(pokeCountOutLabel)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(saveButton)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(saveButton)
+                                    .addComponent(helpButton))))))
+                .addGap(12, 12, 12)
                 .addComponent(pokePicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -1092,7 +1128,7 @@ public class mainWindow extends javax.swing.JFrame {
                     .addComponent(collectionFilterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(regionFilterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pokePicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(typeFiltersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -1100,6 +1136,8 @@ public class mainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(selectedPokemonLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(helpButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1366,7 +1404,23 @@ public class mainWindow extends javax.swing.JFrame {
 
         Point point = evt.getPoint();
         int column = pokeTable.columnAtPoint(point);
-        int row =    pokeTable.rowAtPoint(point);
+        int row = pokeTable.rowAtPoint(point);
+        
+        int natlDex = pokeList.getNatlDexAt(row);
+        
+        
+        int imgY = (( natlDex / 27) * 33)+1;
+        int imgX  = (( (natlDex -1 ) % 27) * 33)+1;
+
+        img = masterImg.getSubimage(imgX, imgY, 32 ,32);
+        
+        img = img.getScaledInstance(80,80, SCALE_DEFAULT);
+    //    Image notBuffered = 
+        
+        icon = new ImageIcon(img);
+        
+        imgLabel.setIcon(icon);
+        
         if(pokeList.isCellEditable(row, column))
         {
             if(column == 8)
@@ -1401,6 +1455,10 @@ public class mainWindow extends javax.swing.JFrame {
         pokeCountLabel.setText("Pokemon currently listed:"); 
         pokeCountOutLabel.setText(String.valueOf(pokeList.sort(getFilters())));
     }//GEN-LAST:event_allPokemonButtonActionPerformed
+
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpButtonActionPerformed
     
     boolean[] getFilters()
     {
@@ -1480,10 +1538,12 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox ghostBox;
     private javax.swing.JCheckBox grassBox;
     private javax.swing.JCheckBox groundBox;
+    private javax.swing.JButton helpButton;
     private javax.swing.JCheckBox hoennCheck;
     private javax.swing.JCheckBox iceBox;
     private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel iconPanel;
+    private javax.swing.JLabel imgLabel;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
@@ -1540,7 +1600,10 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox wantCheck;
     private javax.swing.JCheckBox waterBox;
     // End of variables declaration//GEN-END:variables
- 
+    private Image img;
+    private BufferedImage masterImg;
+    ImageIcon icon;
+    
     static class DexRenderer extends DefaultTableCellRenderer {
 	    @Override
 	    public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus, int row, int column) {

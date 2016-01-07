@@ -37,7 +37,7 @@ public final class Pokemon implements Comparable<Pokemon>{
     
     private int evoFamily;
     
-    private BufferedImage img;
+    
     
     String[] types = {"", "NRM", "FGT", "FLY", "PSN", "GRD", "RCK", "BUG", "GHT", "STL", "FIR", "WTR", "GRS", "ELC", "PSY", "ICE", "DRG", "DRK", "FRY"};
     
@@ -102,16 +102,9 @@ public final class Pokemon implements Comparable<Pokemon>{
         setEvoFamily(ef);
         
         // Calculate BufferedImage
-      /*  
-        try{
-        masterImg = ImageIO.read(new File("./src/mainWindow/pokemon_icondex.png"));
-        } catch (IOException e) {
-        }
-        int imgX = ( getNatlDex() / 27) * 33;
-        int imgY = ( (getNatlDex()-1) % 27) * 33;
+    //  /*  
         
-        img = masterImg.getSubimage(imgX, imgY, 33 ,33);
-//  */  
+    //  */  
           }
     public int getComparator() {
         return comparator;
@@ -594,16 +587,6 @@ public final class Pokemon implements Comparable<Pokemon>{
     /**
      * @return the img
      */
-    public BufferedImage getImg() {
-        return img;
-    }
-
-    /**
-     * @param img the img to set
-     */
-    public void setImg(BufferedImage img) {
-        this.img = img;
-    }
 
     @Override
     public int compareTo(Pokemon o) {
@@ -817,7 +800,6 @@ public final class Pokemon implements Comparable<Pokemon>{
                return o.getMultiples() - this.getMultiples();
             }
         }
-        
         return 0;
     }
 }
