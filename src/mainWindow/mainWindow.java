@@ -1030,7 +1030,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         try
         {
-            masterImg = ImageIO.read(new File("./src/mainWindow/pokemon_icondex.png"));
+            masterImg = ImageIO.read(this.getClass().getResourceAsStream("resources/pokemon_icondex.png"));
         }
         catch (IOException e) {
         }
@@ -1479,14 +1479,13 @@ public class mainWindow extends javax.swing.JFrame {
     //    Image notBuffered = 
         
         icon = new ImageIcon(img);
-        
         imgLabel.setIcon(icon);
         
     }//GEN-LAST:event_pokeTableMousePressed
 
     private void questionMarkLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_questionMarkLabelMouseClicked
         JOptionPane.showMessageDialog(regionFilterPanel,"Caught:   Shows all if enabled, only uncaught if disabled\n"
-                                                       + "Have Multiple:    Shows all if disabled, only those with multiples if enabled\n"
+                                                        +"Have Multiple:    Shows all if disabled, only those with multiples if enabled\n"
                                                         +"Want:	          Shows all if disabled, only those marked 'want' if enabled\n"
                                                         +"Trade:	          Shows all if disabled, only those marked to trade if enabled\n"
                                                         +"Don't Have:       Shows all if disabled, only those uncaught if enabled\n"

@@ -1192,7 +1192,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="try&#xa;{&#xa;    masterImg = ImageIO.read(new File(&quot;./src/mainWindow/pokemon_icondex.png&quot;));&#xa;} &#xa;catch (IOException e) {&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="try&#xa;{&#xa;    masterImg = ImageIO.read(this.getClass().getResourceAsStream(&quot;resources/pokemon_icondex.png&quot;));&#xa;} &#xa;catch (IOException e) {&#xa;}"/>
           </AuxValues>
         </Component>
       </SubComponents>
