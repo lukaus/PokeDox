@@ -1,0 +1,5 @@
+Inspiration:    http://www.asmor.com/pokedex/ by Ian Toltz
+Pokemon icons:  http://krocf4.deviantart.com/art/Pokemon-ORAS-IconDex-398921766 by KrocF4
+Pokeball icon: http://pokemontowerdefensetwo.wikia.com/wiki/File:Pokeball_icon.png
+Some code: http://www.codejava.net/java-se/swing/how-to-handle-mouse-clicking-event-on-jtable-column-header & http://stackoverflow.com/questions/4615741/jtable-clickable-column-header
+PokeDox; Created 2015-2016 by Luke Stanley
