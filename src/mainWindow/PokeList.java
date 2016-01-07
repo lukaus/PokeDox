@@ -329,8 +329,8 @@ final class PokeList extends AbstractTableModel{
             if( pokeFamilies[data.get(j).getEvoFamily()] == true )
             {
               //  System.out.println("----------- " + data.get(j).getName() + ":" + data.get(j).getEvoFamily() + " is being quelled!");
-                if(data.get(j).isCaught())
-                    data.get(currentDexNum).setCaught(true);
+           //     if(data.get(j).isCaught())
+            //        data.get(currentDexNum).setCaught(true);
                 data.remove(j);
                 quelledPokes++;
                 j--;
