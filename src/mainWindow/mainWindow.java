@@ -404,6 +404,11 @@ public class mainWindow extends javax.swing.JFrame {
         titleLabel.setText("PokéDox v 0.99");
 
         creditsLabel.setText("copyright 2015 by Luke Stanley");
+        creditsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                creditsLabelMouseClicked(evt);
+            }
+        });
 
         iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainWindow/Pokeball_icon.png"))); // NOI18N
         iconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1453,11 +1458,18 @@ public class mainWindow extends javax.swing.JFrame {
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
            JOptionPane.showMessageDialog(regionFilterPanel, "Region Filters:\n ---These filter pokemon based on which regional Pokedex they are in.\n"
                                                           + "\nCollection Filters:\n ---These filter based on what user has set for each Pokemon's collection status.\n"
-                   +                                        "---Click the question mark on that panel to read abbout each one.\n"
+                                                        +   "---Click the question mark on that panel to read abbout each one.\n"
                                                            +"\nType filters:\n ---These filter out Pokemon based on type.\n ---If \"Strict Match\" is chacked, unchecked types will be completely excluded.\n"
                                                          +  "\nMark Selected as...:\n ---These buttons will mark all selected Pokemon as the button next to them\n"
                                                            +"\nThere are also buttons to view only Pokemon evolution families, Save changes, view this help screen, or search by Pokemon name.");
     }//GEN-LAST:event_helpButtonActionPerformed
+
+    private void creditsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsLabelMouseClicked
+         JOptionPane.showMessageDialog(regionFilterPanel,"Credits:\n\nInspiration:    http://www.asmor.com/pokedex/ by Ian Toltz\n" +
+                                                        "Pokemon icons:  http://krocf4.deviantart.com/art/Pokemon-ORAS-IconDex-398921766 by KrocF4\n" +
+                                                        "Pokeball icon: http://pokemontowerdefensetwo.wikia.com/wiki/File:Pokeball_icon.png\n" +
+                                                        "PokeDox: Created 2015-2016 by Luke Stanley");
+    }//GEN-LAST:event_creditsLabelMouseClicked
     
     boolean[] getFilters()
     {

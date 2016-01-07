@@ -512,6 +512,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="copyright 2015 by Luke Stanley"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="creditsLabelMouseClicked"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="iconPanel">
 
