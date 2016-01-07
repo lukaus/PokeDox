@@ -78,7 +78,6 @@ public class mainWindow extends javax.swing.JFrame {
         collectionLabel = new javax.swing.JLabel();
         caughtCheck = new javax.swing.JCheckBox();
         wantCheck = new javax.swing.JCheckBox();
-        notHaveCheck = new javax.swing.JCheckBox();
         multiHaveCheck = new javax.swing.JCheckBox();
         seenCheck = new javax.swing.JCheckBox();
         tradeCheck = new javax.swing.JCheckBox();
@@ -300,13 +299,6 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
 
-        notHaveCheck.setText("Don't Have");
-        notHaveCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxActionPerformed(evt);
-            }
-        });
-
         multiHaveCheck.setText("Have Multiple");
         multiHaveCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,13 +362,12 @@ public class mainWindow extends javax.swing.JFrame {
                             .addComponent(multiHaveCheck))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(notHaveCheck)
-                            .addComponent(wantCheck))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seenCheck)
+                            .addGroup(collectionFilterPanelLayout.createSequentialGroup()
+                                .addComponent(wantCheck)
+                                .addGap(31, 31, 31)
+                                .addComponent(seenCheck))
                             .addComponent(tradeCheck))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 3, Short.MAX_VALUE))
                     .addGroup(collectionFilterPanelLayout.createSequentialGroup()
                         .addComponent(allCollectionButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -399,7 +390,6 @@ public class mainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(multiHaveCheck)
-                    .addComponent(notHaveCheck)
                     .addComponent(tradeCheck))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(collectionFilterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -941,31 +931,38 @@ public class mainWindow extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(selectionPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(selectionPanelLayout.createSequentialGroup()
+                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, selectionPanelLayout.createSequentialGroup()
                         .addComponent(setMultipleField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(setMultipleButton))
                     .addGroup(selectionPanelLayout.createSequentialGroup()
                         .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(markWantBox)
                             .addComponent(setCaughtBox))
-                        .addGap(30, 30, 30)
-                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(markCaughtButton)
-                            .addComponent(markWantButton))))
+                        .addGap(14, 14, 14)
+                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(markWantButton)
+                            .addComponent(markCaughtButton))
+                        .addGap(25, 25, 25)))
                 .addGap(18, 18, 18)
                 .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(selectionPanelLayout.createSequentialGroup()
                         .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(markTradeBox)
-                            .addComponent(markSeenBox))
-                        .addGap(28, 28, 28)
-                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(markNotSeenButton)
-                            .addComponent(markNotTradeButton)))
-                    .addComponent(selectionAllButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(selectionPanelLayout.createSequentialGroup()
+                                .addComponent(markSeenBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(markNotSeenButton))
+                            .addGroup(selectionPanelLayout.createSequentialGroup()
+                                .addComponent(markTradeBox)
+                                .addGap(18, 18, 18)
+                                .addComponent(markNotTradeButton)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, selectionPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(selectionAllButton)))
+                .addContainerGap())
         );
         selectionPanelLayout.setVerticalGroup(
             selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1163,7 +1160,6 @@ public class mainWindow extends javax.swing.JFrame {
        
         wantCheck.setSelected(true);
         multiHaveCheck.setSelected(true);
-        notHaveCheck.setSelected(true);
         caughtCheck.setSelected(true);
         tradeCheck.setSelected(true);
         seenCheck.setSelected(true);
@@ -1203,7 +1199,6 @@ public class mainWindow extends javax.swing.JFrame {
         
         wantCheck.setSelected(false);
         multiHaveCheck.setSelected(false);
-        notHaveCheck.setSelected(false);
         caughtCheck.setSelected(false);
         tradeCheck.setSelected(false);
         seenCheck.setSelected(false);
@@ -1264,7 +1259,6 @@ public class mainWindow extends javax.swing.JFrame {
       
         wantCheck.setSelected(false);
         multiHaveCheck.setSelected(false);
-        notHaveCheck.setSelected(false);
         caughtCheck.setSelected(true);
         tradeCheck.setSelected(false);
         seenCheck.setSelected(false);
@@ -1322,9 +1316,9 @@ public class mainWindow extends javax.swing.JFrame {
 
     private void iconLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLabelMouseClicked
         
-     //   JOptionPane.showMessageDialog(selectionPanel, "Don't click OK", "Error:", ERROR_MESSAGE);
-        if(this.getWidth() != 800)
-            this.setSize(800, this.getHeight());
+    
+        if(this.getWidth() != 818)
+            this.setSize(818, this.getHeight());
     }//GEN-LAST:event_iconLabelMouseClicked
 
     private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
@@ -1457,7 +1451,12 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_allPokemonButtonActionPerformed
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
-        // TODO add your handling code here:
+           JOptionPane.showMessageDialog(regionFilterPanel, "Region Filters:\n ---These filter pokemon based on which regional Pokedex they are in.\n"
+                                                          + "\nCollection Filters:\n ---These filter based on what user has set for each Pokemon's collection status.\n"
+                   +                                        "---Click the question mark on that panel to read abbout each one.\n"
+                                                           +"\nType filters:\n ---These filter out Pokemon based on type.\n ---If \"Strict Match\" is chacked, unchecked types will be completely excluded.\n"
+                                                         +  "\nMark Selected as...:\n ---These buttons will mark all selected Pokemon as the button next to them\n"
+                                                           +"\nThere are also buttons to view only Pokemon evolution families, Save changes, view this help screen, or search by Pokemon name.");
     }//GEN-LAST:event_helpButtonActionPerformed
     
     boolean[] getFilters()
@@ -1468,7 +1467,7 @@ public class mainWindow extends javax.swing.JFrame {
             Logger.getLogger(mainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
         boolean[] vals = {kantoCheck.isSelected(), johtoCheck.isSelected(), hoennCheck.isSelected(), sinnohCheck.isSelected(), unovaCheck.isSelected(), kalosCheck.isSelected(), 
-                          caughtCheck.isSelected(), wantCheck.isSelected(), seenCheck.isSelected(), multiHaveCheck.isSelected(), notHaveCheck.isSelected(), tradeCheck.isSelected(), 
+                          caughtCheck.isSelected(), wantCheck.isSelected(), seenCheck.isSelected(), multiHaveCheck.isSelected(), false, tradeCheck.isSelected(), 
                           normalBox.isSelected(), fightingBox.isSelected(), flyingBox.isSelected(), poisonBox.isSelected(),
                           groundBox.isSelected(), rockBox.isSelected(), bugBox.isSelected(), ghostBox.isSelected(),
                           steelBox.isSelected(), fireBox.isSelected(),waterBox.isSelected(), grassBox.isSelected(),
@@ -1563,7 +1562,6 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JButton noRegionButton;
     private javax.swing.JButton noTypeButton;
     private javax.swing.JCheckBox normalBox;
-    private javax.swing.JCheckBox notHaveCheck;
     private javax.swing.JCheckBox poisonBox;
     private javax.swing.JLabel pokeCountLabel;
     private javax.swing.JLabel pokeCountOutLabel;
