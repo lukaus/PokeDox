@@ -89,7 +89,7 @@ final class PokeList extends AbstractTableModel{
         masterList = new ArrayList<Pokemon>();
       
         try{
-            InputStream fstream = this.getClass().getResourceAsStream("resources/pokemon.dat");
+            InputStream fstream = this.getClass().getResourceAsStream("pokemon.dat");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -113,7 +113,7 @@ final class PokeList extends AbstractTableModel{
          
         }
         catch (Exception e){
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("Error while reading pokemon.dat: " + e.getMessage());
      //       System.err.println("At: " + tokens[0]);
         }     
    }
