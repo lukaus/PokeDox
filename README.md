@@ -3,9 +3,7 @@ A program to keep track of your Pokemon collection! Primarily to help me complet
 
 By Luke Stanley
 
-Version numbering is more of just milestones, can't even remember most of them, but here ya go:
-
-VERSION 1.0 INCLUDES:
+INCLUDED FEATURES:
 
     -   Finished GUI
     -   Completed Pokemon list with dex numbers/types
