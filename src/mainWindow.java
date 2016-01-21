@@ -50,7 +50,7 @@ public class mainWindow extends javax.swing.JFrame {
     PokeList pokeList = new PokeList();
     public mainWindow() {
         initComponents(); 
-        this.setIconImage(new ImageIcon(getClass().getResource("Pokeball_icon.png")).getImage()); 
+        this.setIconImage(new ImageIcon(getClass().getResource("PokeBall_icon.png")).getImage()); 
     }
    
 
@@ -408,14 +408,21 @@ public class mainWindow extends javax.swing.JFrame {
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         titleLabel.setText("PokéDox");
 
-        creditsLabel.setText("copyright 2015 by Luke Stanley");
+        creditsLabel.setText("copyright 2015-2016 by Luke Stanley");
         creditsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 creditsLabelMouseClicked(evt);
             }
         });
 
-        iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainWindow/Pokeball_icon.png"))); // NOI18N
+        try{
+        	iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("PokeBall_icon.png"))); // NOI18N
+        }
+        catch(Exception e){
+            System.err.println("Error while reading Pokeball_icon.png: " + e.getMessage());
+            System.exit(-1);
+        }
+        
         iconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconLabelMouseClicked(evt);
@@ -619,9 +626,19 @@ public class mainWindow extends javax.swing.JFrame {
 
         groundBox.setSelected(true);
         groundBox.setText("Ground");
+        groundBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxActionPerformed(evt);
+            }
+        });
 
         psychicBox.setSelected(true);
         psychicBox.setText("Psychic");
+        psychicBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxActionPerformed(evt);
+            }
+        });
 
         fightingBox.setSelected(true);
         fightingBox.setText("Fighting");
@@ -1030,7 +1047,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         try
         {
-            masterImg = ImageIO.read(this.getClass().getResourceAsStream("resources/pokemon_icondex.png"));
+            masterImg = ImageIO.read(this.getClass().getResourceAsStream("pokemon_icondex.png"));
         }
         catch (IOException e) {
         }
@@ -1448,8 +1465,8 @@ public class mainWindow extends javax.swing.JFrame {
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
            JOptionPane.showMessageDialog(regionFilterPanel, "Region Filters:\n ---These filter pokemon based on which regional Pokedex they are in.\n"
                                                           + "\nCollection Filters:\n ---These filter based on what user has set for each Pokemon's collection status.\n"
-                                                        +   "---Click the question mark on that panel to read abbout each one.\n"
-                                                           +"\nType filters:\n ---These filter out Pokemon based on type.\n ---If \"Strict Match\" is chacked, unchecked types will be completely excluded.\n"
+                                                        +   "---Click the question mark on that panel to read about each one.\n"
+                                                           +"\nType filters:\n ---These filter out Pokemon based on type.\n ---If \"Strict Match\" is checked, unchecked types will be completely excluded.\n"
                                                          +  "\nMark Selected as...:\n ---These buttons will mark all selected Pokemon as the button next to them\n"
                                                            +"\nThere are also buttons to view only Pokemon evolution families, Save changes, view this help screen, or search by Pokemon name.");
     }//GEN-LAST:event_helpButtonActionPerformed
