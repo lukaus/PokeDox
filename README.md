@@ -3,6 +3,9 @@ A program to keep track of your Pokemon collection! Primarily to help me complet
 
 By Luke Stanley
 
+Download: https://github.com/lukexorz/PokeDox/archive/master.zip or click "Download zip" above
+To install: Make sure Java is up to date and launch PokeDox.jar
+
 INCLUDED FEATURES:
 
     -   Finished GUI
