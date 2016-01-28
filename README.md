@@ -18,3 +18,8 @@ INCLUDED FEATURES:
     -   Implement sorting/viewing by evolution family
     -   Make pokemon's icon appear in the proper panel when selected
     -   No bugs! (Only hidden features)
+
+To-do:
+
+    -   Compile for older versions of Java
+    -   Enable column resizing for fullscreen/larger window use
