@@ -1487,7 +1487,7 @@ public class mainWindow extends javax.swing.JFrame {
         int natlDex = pokeList.getNatlDexAt(row);
         
         
-        int imgY = (( natlDex / 27) * 33)+1;
+        int imgY = (( (natlDex-1) / 27) * 33)+1;
         int imgX  = (( (natlDex -1 ) % 27) * 33)+1;
 
         img = masterImg.getSubimage(imgX, imgY, 32 ,32);
