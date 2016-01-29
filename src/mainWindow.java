@@ -7,6 +7,7 @@ package mainWindow;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.Image;
 import static java.awt.Image.SCALE_DEFAULT;
 import java.awt.Point;
@@ -15,6 +16,8 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.EventObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,6 +45,8 @@ import javax.swing.table.TableColumn;
 
 
 public class mainWindow extends javax.swing.JFrame {
+
+    static boolean needsToSave = false;
 
     /**
      * Creates new form mainWindow
@@ -443,6 +448,16 @@ public class mainWindow extends javax.swing.JFrame {
         jTextField1.setEditable(false);
         jTextField1.setText("https://github.com/lukexorz/PokeDox");
         jTextField1.setBorder(null);
+        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                try {
+                    open(new URI(jTextField1.getText()));
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(mainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
 
         javax.swing.GroupLayout titlePanelLayout = new javax.swing.GroupLayout(titlePanel);
         titlePanel.setLayout(titlePanelLayout);
@@ -536,15 +551,15 @@ public class mainWindow extends javax.swing.JFrame {
             pokeTable.getColumnModel().getColumn(3).setMinWidth(0);
             pokeTable.getColumnModel().getColumn(3).setPreferredWidth(47);
             pokeTable.getColumnModel().getColumn(3).setMaxWidth(65);
-            pokeTable.getColumnModel().getColumn(3).setHeaderValue("Johto#");
+            pokeTable.getColumnModel().getColumn(3).setHeaderValue("Johto #");
             pokeTable.getColumnModel().getColumn(4).setMinWidth(0);
             pokeTable.getColumnModel().getColumn(4).setPreferredWidth(45);
             pokeTable.getColumnModel().getColumn(4).setMaxWidth(65);
-            pokeTable.getColumnModel().getColumn(4).setHeaderValue("Hoenn#");
+            pokeTable.getColumnModel().getColumn(4).setHeaderValue("Hoenn #");
             pokeTable.getColumnModel().getColumn(5).setMinWidth(0);
             pokeTable.getColumnModel().getColumn(5).setPreferredWidth(45);
             pokeTable.getColumnModel().getColumn(5).setMaxWidth(65);
-            pokeTable.getColumnModel().getColumn(5).setHeaderValue("Sinnoh#");
+            pokeTable.getColumnModel().getColumn(5).setHeaderValue("Sinnoh #");
             pokeTable.getColumnModel().getColumn(6).setMinWidth(0);
             pokeTable.getColumnModel().getColumn(6).setPreferredWidth(45);
             pokeTable.getColumnModel().getColumn(6).setMaxWidth(65);
@@ -1359,6 +1374,9 @@ public class mainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if (!mainWindow.needsToSave) {
+            System.exit(0);
+        }
         
         int result = JOptionPane.showConfirmDialog(titlePanel, "Do you want to save your changes?", "Exiting program.", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         
@@ -1525,6 +1543,14 @@ public class mainWindow extends javax.swing.JFrame {
                           darkBox.isSelected(), fairyBox.isSelected(), strictBox.isSelected(), singleOnlyBox.isSelected(), dualOnlyBox.isSelected(), evoFamButton.isSelected() };
         return vals;
     }
+    
+    private static void open(URI uri) {
+    if (Desktop.isDesktopSupported()) {
+      try {
+        Desktop.getDesktop().browse(uri);
+      } catch (IOException e) { /* TODO: error handling */ }
+    } else { /* TODO: error handling */ }
+  }
     
     /**
      * @param args the command line arguments

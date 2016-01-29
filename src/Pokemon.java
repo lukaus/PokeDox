@@ -335,7 +335,11 @@ public final class Pokemon implements Comparable<Pokemon>{
     
     String getType()    // returns properly formatted 
     {
-        return getTypeStr(getType1()) + "/" + getTypeStr(getType2());        
+        if (getType2() > 0) {
+            return getTypeStr(getType1()) + "/" + getTypeStr(getType2());        
+        } else {
+            return getTypeStr(getType1());
+        }
     }
     
     String getTypeStr(int n)        // takes an int

@@ -119,6 +119,7 @@ final class PokeList extends AbstractTableModel{
    }
     void saveData()
     {
+        mainWindow.needsToSave = false;
         try {
 			File file = new File("./src/mainWindow/pokemon.dat");
 
@@ -177,6 +178,8 @@ final class PokeList extends AbstractTableModel{
        }
        public void setValueAt(Object value, int row, int col) 
        {
+           mainWindow.needsToSave = true;
+           
            if(col < 12)
            {
                if(col == 8)
