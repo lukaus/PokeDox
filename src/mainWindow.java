@@ -421,7 +421,7 @@ public class mainWindow extends javax.swing.JFrame {
         });
 
         try{
-        	iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("PokeBall_icon.png"))); // NOI18N
+            iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("PokeBall_icon.png"))); // NOI18N
         }
         catch(Exception e){
             System.err.println("Error while reading Pokeball_icon.png: " + e.getMessage());
@@ -1521,8 +1521,8 @@ public class mainWindow extends javax.swing.JFrame {
     private void questionMarkLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_questionMarkLabelMouseClicked
         JOptionPane.showMessageDialog(regionFilterPanel,"Caught:   Shows all if enabled, only uncaught if disabled\n"
                                                         +"Have Multiple:    Shows all if disabled, only those with multiples if enabled\n"
-                                                        +"Want:	          Shows all if disabled, only those marked 'want' if enabled\n"
-                                                        +"Trade:	          Shows all if disabled, only those marked to trade if enabled\n"
+                                                        +"Want:           Shows all if disabled, only those marked 'want' if enabled\n"
+                                                        +"Trade:              Shows all if disabled, only those marked to trade if enabled\n"
                                                         +"Don't Have:       Shows all if disabled, only those uncaught if enabled\n"
                                                         +"Seen:                Shows all if disabled, only seen if enabled");
     }//GEN-LAST:event_questionMarkLabelMouseClicked
@@ -1679,23 +1679,23 @@ public class mainWindow extends javax.swing.JFrame {
     ImageIcon icon;
     
     static class DexRenderer extends DefaultTableCellRenderer {
-	    @Override
-	    public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-	        Component c = super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
-	        if (c instanceof JLabel && value instanceof Number) {
-	            JLabel label = (JLabel) c;
-	            label.setHorizontalAlignment(JLabel.RIGHT);
-	            Number num = (Number) value;
+        @Override
+        public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component c = super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
+            if (c instanceof JLabel && value instanceof Number) {
+                JLabel label = (JLabel) c;
+                label.setHorizontalAlignment(JLabel.RIGHT);
+                Number num = (Number) value;
                     int intValue = num.intValue();
                     
                     String text = String.valueOf(intValue);if(intValue == -1)
                         label.setText("");
-	            else
+                else
                         label.setText(text);
-	 
-	        //    label.setForeground(num.doubleValue() < 0 ? Color.RED : Color.BLACK);
-	        }
-	        return c;
-	    }
+     
+            //    label.setForeground(num.doubleValue() < 0 ? Color.RED : Color.BLACK);
+            }
+            return c;
+        }
     }
 }

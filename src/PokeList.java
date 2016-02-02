@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -89,9 +90,9 @@ final class PokeList extends AbstractTableModel{
         masterList = new ArrayList<Pokemon>();
       
         try{
-            InputStream fstream = this.getClass().getResourceAsStream("pokemon.dat");
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        //    InputStream fstream = this.getClass().getResourceAsStream("/pokemon.dat");
+        //    DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new FileReader("./pokemon.dat"));
             String strLine;
             while ((strLine = br.readLine()) != null)   {
                 String[] 
@@ -109,7 +110,7 @@ final class PokeList extends AbstractTableModel{
                         Integer.parseInt(tokens[13]),Integer.parseInt(tokens[14])));
                    
             }
-            in.close();
+            //in.close();
          
         }
         catch (Exception e){
@@ -121,27 +122,27 @@ final class PokeList extends AbstractTableModel{
     {
         mainWindow.needsToSave = false;
         try {
-			File file = new File("./src/mainWindow/pokemon.dat");
+            File file = new File("./pokemon.dat");
 
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            
                         for(int i = 0; i < masterList.size(); i++)
                         {
                             bw.write(masterList.get(i).getSaveData());
                         }
                         
                         bw.close();
-			System.out.println("Done saving");
+            System.out.println("Done saving");
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
 
