@@ -17,7 +17,8 @@ INCLUDED FEATURES:
     -   Fully implemented GUI
     -   Implement sorting/viewing by evolution family
     -   Make pokemon's icon appear in the proper panel when selected
-    -   No bugs! (Only hidden features)
+
+![http://imgur.com/a/bK0Mx](http://i.imgur.com/P8wQORb.png)
 
 To-do:
 
