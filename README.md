@@ -20,6 +20,8 @@ INCLUDED FEATURES:
 
 ![http://imgur.com/a/bK0Mx](http://i.imgur.com/P8wQORb.png)
 
+More images: http://imgur.com/a/bK0Mx
+
 To-do:
 
     -   Compile for older versions of Java
