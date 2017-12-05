@@ -23,6 +23,7 @@ public final class Pokemon implements Comparable<Pokemon>{
     private int sinnohDex;
     private int unovaDex;
     private int kalosDex;
+    private int alolaDex;
     private int comparator; 
 
     private String name;
@@ -44,12 +45,13 @@ public final class Pokemon implements Comparable<Pokemon>{
     Pokemon()
     {
         dataSet = new ArrayList<Object>();
-        natlDex = 1; 
+        natlDex = 1;
         johtoDex = 2; 
         hoennDex = 3; 
         sinnohDex = 4; 
         unovaDex = 5; 
         kalosDex = 6;
+        alolaDex = 7;
         name = "Pikashoo"; 
         type1 = 1; 
         type2 = 2;
